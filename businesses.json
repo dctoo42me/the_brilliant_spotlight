@@ -1,0 +1,44 @@
+[
+    {
+    "id": 1,
+    "name": "Watershed",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 2,
+    "name": "Purewash",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 3,
+    "name": "Mount Playmore",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine.",
+    "website": "#"
+    },
+    {
+    "id": 4,
+    "name": "Pins and Wheels",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 5,
+    "name": "Wipers and Toys",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 6,
+    "name": "Wipers, Windows, and Toys",
+    "image": "images/projects/watershed_card.jpg",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    }
+    ]
