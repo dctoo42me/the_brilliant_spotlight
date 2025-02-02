@@ -47,7 +47,8 @@ header {
 .cards-bg {
     /* background-color: rgb(99, 167, 255); */
     /* background-color: rgb(204, 211, 251); */
-    background-color: rgb(173, 255, 101);
+    /* background-color: rgb(173, 255, 101); */
+    background-color: rgb(255, 116, 0);
 }
 
 section {
@@ -148,9 +149,9 @@ section.business-cards {
 
 .card img {
     /* background-color: red; */
-    padding-top: 10px;
+    /* padding-top: 10px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px; */
     width: 350px;
     height: 200px;
     border-top-left-radius: 10px;
@@ -274,14 +275,19 @@ img.profile-picture {
     display: flex; /* Display when active */
 }
 
-.modal-content {
-    /* background-color: rgb(173, 255, 101); */
+.modal-content {    
+    background-color: rgb(255, 116, 0);
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     transform: scale(1.5);
     /* text-align: center; */
+}
+
+.modal-content img {
+    padding: 0;
+    width: 100%;
 }
 
 .close-modal {
