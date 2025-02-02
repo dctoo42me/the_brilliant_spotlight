@@ -2,42 +2,126 @@
     {
     "id": 1,
     "name": "Watershed",
-    "image": "images/projects/watershed_card.jpg",
+    "image": "images/projects/watershed.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
     "website": "#"
     },
     {
     "id": 2,
-    "name": "Purewash",
-    "image": "images/projects/watershed_card.jpg",
+    "name": "Airsheen",
+    "image": "images/projects/airsheen.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
     "website": "#"
     },
     {
     "id": 3,
-    "name": "Mount Playmore",
-    "image": "images/projects/watershed_card.jpg",
+    "name": "All Spines",
+    "image": "images/projects/all_spines.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine.",
     "website": "#"
     },
     {
     "id": 4,
-    "name": "Pins and Wheels",
-    "image": "images/projects/watershed_card.jpg",
+    "name": "Captial of Texas Zoo",
+    "image": "images/projects/capital_of_tx_zoo.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
     "website": "#"
     },
     {
     "id": 5,
-    "name": "Wipers and Toys",
-    "image": "images/projects/watershed_card.jpg",
+    "name": "Drip Bar",
+    "image": "images/projects/drip_bar.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
     "website": "#"
     },
     {
     "id": 6,
-    "name": "Wipers, Windows, and Toys",
-    "image": "images/projects/watershed_card.jpg",
+    "name": "East Austin Athletic Club",
+    "image": "images/projects/e_austin_ath_club.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 7,
+    "name": "EcoShield Pest Solutions",
+    "image": "images/projects/eco_shield_pest_solutions.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 8,
+    "name": "Hanks",
+    "image": "images/projects/hanks.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 9,
+    "name": "Marvelous Maids",
+    "image": "images/projects/marvelous_maids.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 10,
+    "name": "Mega Furniture",
+    "image": "images/projects/mega_furniture.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 11,
+    "name": "Menchies",
+    "image": "images/projects/menchies.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 12,
+    "name": "Mount Playmore",
+    "image": "images/projects/mount_playmore.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 13,
+    "name": "Pins and Wheels",
+    "image": "images/projects/pins_and_wheels.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 14,
+    "name": "Southwest Theaters",
+    "image": "images/projects/southwest_theaters.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 15,
+    "name": "Steiner Lawn Care",
+    "image": "images/projects/steiner_lawn_care.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 16,
+    "name": "The Stellar Dog",
+    "image": "images/projects/stellar_dog.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 17,
+    "name": "Zero Latency",
+    "image": "images/projects/zero_latency.png",
+    "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
+    "website": "#"
+    },
+    {
+    "id": 18,
+    "name": "Body Lab Massage",
+    "image": "images/projects/body_lab_massage.png",
     "description": "At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in creating customized websites tailored to your unique needs, helping you establish a professional online presence.",
     "website": "#"
     }

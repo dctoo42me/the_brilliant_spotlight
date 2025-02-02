@@ -90,15 +90,56 @@ section.business-cards {
 }
 
 /* index-cards.html */
+/* Carousel Wrapper */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Arrows */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Positioning */
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+
 .carousel {
     padding-left: 5px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     gap: 15px;
-    width: 100%;
-    /* overflow-x: auto; */
+    /* width: 100%; */
     scroll-behavior: smooth;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel::-webkit-scrollbar {
@@ -107,11 +148,11 @@ section.business-cards {
 
 .card img {
     /* background-color: red; */
-    height: auto;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     width: 350px;
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     /* background-color: pink; */
@@ -234,11 +275,12 @@ img.profile-picture {
 }
 
 .modal-content {
-    background-color: rgb(173, 255, 101);
+    /* background-color: rgb(173, 255, 101); */
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
+    transform: scale(1.5);
     /* text-align: center; */
 }
 
