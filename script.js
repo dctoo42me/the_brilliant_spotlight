@@ -94,9 +94,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Modal Functionality
     const modal = document.querySelector(".modal");
     const modalContent = document.querySelector(".modal-content");
-    const closeModal = document.querySelector(".close-modal");
+    const closeModal = document.querySelector(".btn-close");
 
     function openModal(business) {
+
         // Update modal content with the same card structure
         modalContent.innerHTML = `
         <div class="card">
@@ -117,14 +118,25 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         modal.classList.add("active");
         carousel.style.pointerEvents = "none";
+
+        // Hide arrows when modal is open
+        leftBtn.style.display = "none";
+        rightBtn.style.display = "none";
+        document.querySelector(".close-modal").addEventListener("click", closeModalFunction);
     }
 
+    document.querySelector(".modal").addEventListener("click", function (event) {
+        if (event.target === this) closeModalFunction();
+    });
     function closeModalFunction() {
         modal.classList.remove("active");
         carousel.style.pointerEvents = "auto";
+        
+        // Display arrows when modal closed
+        leftBtn.style.display = "block";
+        rightBtn.style.display = "block";
 
-        // Restore the original URL when modal is closed
-        window.history.pushState({}, "", window.location.pathname);
+
     }
 
     closeModal.addEventListener("click", closeModalFunction);
@@ -143,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             openModal(matchedBusiness);
         }
     }
-
+    
     // Handle browser back/forward navigation
     window.addEventListener("popstate", function () {
         if (window.location.search.includes("business")) {
