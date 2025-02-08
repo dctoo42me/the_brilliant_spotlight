@@ -315,6 +315,10 @@ img.profile-picture {
     }
 }
 
+.larger {
+    transform: scale(1.5);
+}
+
 
 /****************************************************************/
 footer {
@@ -344,7 +348,7 @@ footer {
     }
     .modal-content {
         background-color: red;
-        transform: scale(.8);
+        transform: scale(1.2);
     }
     .btn-close {
         position: absolute;
@@ -375,7 +379,7 @@ footer {
     }
 
     .modal-content {
-        transform: scale(.60); 
+        transform: scale(1); 
     } 
 
     .main-title {

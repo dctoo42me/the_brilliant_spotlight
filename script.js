@@ -145,7 +145,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         window.history.pushState({ business: business.name }, "", newUrl);
 
         modal.classList.add("active");
-        modal.style.transform = "scale(1.5)";
+        if (window.innerWidth > 500) { 
+            modalContent.classList.add("larger");
+        }
+        else 
+        {
+            modalContent.classList.remove("larger");
+        }
         carousel.style.pointerEvents = "none";
 
         // Hide arrows when modal is open
