@@ -41,14 +41,16 @@ header {
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    background-color: #fcfcec;
+    /* background-color: #fcfcec; */
+    background-color: #acedff;
 }
 
 .cards-bg {
     /* background-color: rgb(99, 167, 255); */
     /* background-color: rgb(204, 211, 251); */
     /* background-color: rgb(173, 255, 101); */
-    background-color: rgb(255, 116, 0);
+    /* background-color: rgb(255, 116, 0); */
+    background-color: #acedff;
     
 }
 
@@ -138,43 +140,41 @@ section.business-cards {
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
-    gap: 15px;
-    /* width: 100%; */
-    scroll-behavior: smooth;
-    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.1s ease-in-out;
 }
 
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
-.card img {
-    /* background-color: red; */
-    /* padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px; */
-    width: 350px;
-    height: 200px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    /* background-color: pink; */
-}
 
 .card {
-    /* padding: 20px; */
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 300px;
+    /* width: 100%; */
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
-                0 1px 3px rgba(0, 0, 0, 0.433);
+    0 1px 3px rgba(0, 0, 0, 0.433);
     background-color: #242424;
     /* background-color: aqua; */
 }
 
+.image-card-container {
+    width: 300px;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
 .card-content {
     margin: 10px 10px;
     display: flex;
@@ -229,7 +229,8 @@ img.profile-picture {
     border-radius: 50%;
     margin: 20px auto;
     display: block;
-    background-color: #f3ef08;
+    /* background-color: #f3ef08; */
+    background-color: #ffff21;
 }
 
 .site-button {
@@ -282,10 +283,8 @@ img.profile-picture {
     position: relative;
     background-color: rgba(255, 115, 0, 0.593);
     background-color: rgba(0, 0, 0, 0);
-    /* padding: 20px; */
+    background-color: red;
     border-radius: 10px;
-    width: 100%;
-    max-width: 350px;
     transform: scale(1.5);
 }
 
@@ -339,7 +338,11 @@ footer {
     .main-content {
         padding: 0px;
     }
+    .main-title{
+        font-size: 1rem;
+    }
     .modal-content {
+        background-color: red;
         transform: scale(1);
     }
     .btn-close {
@@ -349,10 +352,17 @@ footer {
         padding-right: 2px;
         padding-top: 2px;
     }
+    .card {
+        /* width: 100%; */
+    }
+
 }
 
 @media screen and (max-width: 380px) {
-    .card img {
+    /* .card img {
         width: 100%;
+    } */
+    .main-title {
+        font-size: .9rem;
     }
 }

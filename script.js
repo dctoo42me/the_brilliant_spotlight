@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
-            <img src="${business.image}" alt="${business.name}">
+            <div class="image-card-container">
+                <img src="${business.image}" alt="${business.name}">
+            </div>
             <div class="card-content">
                 <div class="business-name">
                     <h2>${business.name}</h2>
@@ -33,19 +35,38 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     let isAnimating = false;
-    const cardWidth = document.querySelector(".card").offsetWidth + 20; // Card width + gap
+    let cardWidth = getCardWidth(); // Initial card width calculation
 
+     // Function to get the actual card width including margin
+    function getCardWidth() {
+        const firstCard = document.querySelector(".card");
+    if (!firstCard) return 0;
+
+    const cardStyle = window.getComputedStyle(firstCard);
+    const cardMarginRight = parseInt(cardStyle.marginRight) || 0;
+    const cardGap = 20; // Match CSS gap
+
+    return firstCard.offsetWidth + cardMarginRight + cardGap;
+    }
+
+    // Update cardWidth on window resize
+    function updateCardWidth() {
+        cardWidth = getCardWidth();
+    }
+    window.addEventListener("resize", updateCardWidth);
 
     function shiftLeft() {
         if (isAnimating) return;
         isAnimating = true;
+        
+        updateCardWidth();
         carousel.style.transition = "transform 0.5s ease-in-out";
         carousel.style.transform = `translateX(-${cardWidth}px)`;
-
+    
         setTimeout(() => {
+            carousel.style.transition = "none"; // Disable transition temporarily
             carousel.appendChild(carousel.firstElementChild);
-            carousel.style.transition = "none";
-            carousel.style.transform = "translateX(0)";
+            carousel.style.transform = "translateX(0)"; // Reset position instantly
             isAnimating = false;
         }, 500);
     }
@@ -53,10 +74,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     function shiftRight() {
         if (isAnimating) return;
         isAnimating = true;
+    
+        updateCardWidth();
+        carousel.style.transition = "none"; // Disable transition to avoid flickering
         carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
-        carousel.style.transition = "none";
         carousel.style.transform = `translateX(-${cardWidth}px)`;
-
+    
         setTimeout(() => {
             carousel.style.transition = "transform 0.5s ease-in-out";
             carousel.style.transform = "translateX(0)";
@@ -84,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     carousel.addEventListener("touchend", () => {
-        if (isSwiping) {
+        if (isSwiping && Math.abs(moveX - startX) > 50) {
             if (moveX < startX) shiftLeft();
             else shiftRight();
         }
@@ -97,6 +120,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     const closeModal = document.querySelector(".btn-close");
 
     function openModal(business) {
+
+        if (!modal || !modalContent) {
+            console.error("Modal elements not found!");
+            return;
+        }
 
         // Update modal content with the same card structure
         modalContent.innerHTML = `
@@ -122,15 +150,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Hide arrows when modal is open
         leftBtn.style.display = "none";
         rightBtn.style.display = "none";
-        document.querySelector(".close-modal").addEventListener("click", closeModalFunction);
     }
 
-    document.querySelector(".modal").addEventListener("click", function (event) {
-        if (event.target === this) closeModalFunction();
-    });
     function closeModalFunction() {
         modal.classList.remove("active");
         carousel.style.pointerEvents = "auto";
+
+        // Reset URL without refreshing
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.pushState({}, "", newUrl);
         
         // Display arrows when modal closed
         leftBtn.style.display = "block";
