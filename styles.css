@@ -40,8 +40,8 @@ header {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    height: 100%;
     flex-grow: 1;
-    /* background-color: #fcfcec; */
     background-color: #acedff;
 }
 
@@ -59,6 +59,8 @@ section {
     flex-direction: row;
     justify-content: center;
     padding: 0;
+    /* max-height: 100vh;
+    height: 100%; */
     /* background-color: rgb(99, 167, 255); */
 }
 
@@ -80,6 +82,7 @@ section.business-cards {
     align-items: center;
     width: 80%;
     height: 100%;
+    overflow-y: scroll;
     /* background-color: rgb(13, 255, 13); */
 }
 
@@ -91,8 +94,9 @@ section.business-cards {
     font-size: 1.4rem;
     letter-spacing: 1px;
     margin-top: 15px;
-    max-height: 300px;
-    overflow: auto;
+    /* overflow: auto; */
+    /* background-color: white; */
+    padding: 10px;
 }
 
 /* index-cards.html */
@@ -420,7 +424,7 @@ footer {
     }
 
     .content-container {
-        height: 100vh;
+        /* height: 100vh; */
     }
 
 }
