@@ -39,8 +39,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     width: 100%;
+    flex-grow: 1;
     /* background-color: #fcfcec; */
     background-color: #acedff;
 }
@@ -78,7 +78,7 @@ section.business-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 80%;
     height: 100%;
     /* background-color: rgb(13, 255, 13); */
 }
@@ -91,6 +91,8 @@ section.business-cards {
     font-size: 1.4rem;
     letter-spacing: 1px;
     margin-top: 15px;
+    max-height: 300px;
+    overflow: auto;
 }
 
 /* index-cards.html */
@@ -98,7 +100,7 @@ section.business-cards {
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* Arrows */
@@ -137,12 +139,12 @@ section.business-cards {
 
 .carousel {
     padding-left: 5px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     display: flex;
     flex-direction: row;
     gap: 20px;
     width: 100%;
-    overflow: hidden;
+    /* overflow: auto; */
     transition: transform 0.1s ease-in-out;
 }
 
@@ -343,9 +345,28 @@ footer {
     .main-content {
         padding: 0px;
     }
+
+    .main-container {
+        /* height: 100vh; */
+        flex-direction: column;
+        flex-grow: 1;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
     .main-title{
         font-size: 1rem;
     }
+
+    .content-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    section {
+        padding: 20px
+    }
+
     .modal-content {
         background-color: red;
         transform: scale(1.2);
@@ -357,32 +378,49 @@ footer {
         padding-right: 2px;
         padding-top: 2px;
     }
-    .card {
-        /* width: 80%; */
-    }
-    
+
     .card p {
         max-height: 250px;
         height: 100%;
     }
+
+    .content-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-container p {
+        max-height: 200px;
+        font-size: 1.1rem;
+    }
     
+    .business-name {
+        max-height: 50px;
+        height: 100%;
+        margin: 10px;
+    }
 }
 
 @media screen and (max-width: 420px) {
-    
-    .image-card-container {
-        width: 250px;
-    }
 
     .card {
-        max-height: 80vh;
+    transform: scale(.95);
     }
 
     .modal-content {
         transform: scale(1); 
+        background-color: #00000000;
     } 
 
     .main-title {
         font-size: .9rem;
     }
+
+    .main-container {
+        height: 100%;
+    }
+
+    .content-container {
+        height: 100vh;
+    }
+
 }

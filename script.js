@@ -56,17 +56,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.addEventListener("resize", updateCardWidth);
 
     function shiftLeft() {
-        if (isAnimating) return;
+                if (isAnimating) return;
         isAnimating = true;
-        
+
         updateCardWidth();
+
+        // **1. Clone first card and add it at the end**
+        const firstCard = carousel.firstElementChild;
+        const clone = firstCard.cloneNode(true);
+        carousel.appendChild(clone);
+
+        // **2. Animate shift left**
         carousel.style.transition = "transform 0.5s ease-in-out";
         carousel.style.transform = `translateX(-${cardWidth}px)`;
-    
+
+        // **3. After animation, remove the original first card and reset transform**
         setTimeout(() => {
-            carousel.style.transition = "none"; // Disable transition temporarily
-            carousel.appendChild(carousel.firstElementChild);
-            carousel.style.transform = "translateX(0)"; // Reset position instantly
+            firstCard.remove();
+            carousel.style.transition = "none";
+            carousel.style.transform = "translateX(0)";
             isAnimating = false;
         }, 500);
     }
@@ -76,15 +84,28 @@ document.addEventListener("DOMContentLoaded", async function () {
         isAnimating = true;
     
         updateCardWidth();
-        carousel.style.transition = "none"; // Disable transition to avoid flickering
-        carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
+    
+        // **1. Clone last card and add it at the beginning**
+        const lastCard = carousel.lastElementChild;
+        const clone = lastCard.cloneNode(true);
+        carousel.insertBefore(clone, carousel.firstElementChild);
+    
+        // **2. Set initial transform offset**
+        carousel.style.transition = "none";
         carousel.style.transform = `translateX(-${cardWidth}px)`;
     
-        setTimeout(() => {
-            carousel.style.transition = "transform 0.5s ease-in-out";
-            carousel.style.transform = "translateX(0)";
-            isAnimating = false;
-        }, 50);
+        // **3. Animate back to normal**
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                carousel.style.transition = "transform 0.5s ease-in-out";
+                carousel.style.transform = "translateX(0)";
+                
+                setTimeout(() => {
+                    lastCard.remove(); // Remove old last card after animation
+                    isAnimating = false;
+                }, 500);
+            });
+        });
     }
 
     // Arrow Button Click
