@@ -225,4 +225,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             closeModalFunction();
         }
     });
+    
 });
+
