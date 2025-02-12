@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         window.history.pushState({ business: business.name }, "", newUrl);
 
         modal.classList.add("active");
-        if (window.innerWidth > 500) { 
+        if (window.innerWidth > 601) { 
             modalContent.classList.add("larger");
         }
         else 
