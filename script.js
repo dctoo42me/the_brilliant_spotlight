@@ -380,10 +380,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         document.getElementById("share-button").addEventListener("click", () => {
             const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.name)}`;
+        
             if (navigator.share) {
                 navigator.share({
                     title: business.name,
-                    url: shareUrl,
+                    text: `Check out this business: ${business.name}`,
+                    url: shareUrl, // Now correctly links to the modal
                 });
             } else {
                 if (!document.getElementById("qr-code")) {

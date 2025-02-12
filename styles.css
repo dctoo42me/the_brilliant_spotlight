@@ -37,7 +37,8 @@ header {
 
 .home-hero {
     overflow: auto;
-    padding: 20px 0;
+    padding: 5px 0;
+    scrollbar-width: none;
 }
 
 .main-container {
@@ -354,13 +355,22 @@ footer {
         font-size: 1rem;
     }
 
+    img.profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .business-name {
+        max-height: 75px;
+    }
+
     .modal-content {
-        transform: scale(1.4); 
+        transform: scale(1); 
         background-color: #00000000;
     } 
 
     .content-container {
-        width: 90%;
+        width: 95%;
         height: 100%;
         /* background-color: green; */
     }
@@ -369,12 +379,19 @@ footer {
         font-size: 1.7rem;
     }
 
+    .btn-close {
+        padding: 4px;
+        top: 1%;
+        right: 1%;
+        font-size: 5rem;
+    }
+
 }
 
 @media screen and (max-width: 420px) {
 
     .card {
-    transform: scale(.95);
+    transform: scale(.8);
     }
 
     .modal-content {
@@ -398,9 +415,23 @@ footer {
         padding: 10px;
     }
 
+    .card {
+        transform: scale(.9);
+    }
+
     .main-title {
         font-size: .75rem;
     }
+    
+    .card-content {
+        max-height: 200px;
+        height: 100%;
+    }
+
+    .business-name {
+        max-height: 50px;
+    }
+
     .carousel {
         padding-left: 0;
     }
@@ -411,10 +442,6 @@ footer {
 
     .image-card-container {
         width: 250px;
-    }
-
-    .card-content {
-        max-height: 250px;
     }
 
     .business-name h2 {
