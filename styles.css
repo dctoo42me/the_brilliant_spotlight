@@ -35,6 +35,11 @@ header {
     font-size: 1.5rem;
 }
 
+.home-hero {
+    overflow: auto;
+    padding: 20px 0;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -79,7 +84,7 @@ section.business-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     width: 80%;
     height: 100%;
     overflow-y: scroll;
@@ -89,10 +94,11 @@ section.business-cards {
 
 .content-container h2 {
     font-size: 2rem;
+    text-align: center;
 }
 
 .content-container p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 1px;
     margin-top: 15px;
     /* background-color: white; */
@@ -352,6 +358,16 @@ footer {
         transform: scale(1.4); 
         background-color: #00000000;
     } 
+
+    .content-container {
+        width: 90%;
+        height: 100%;
+        /* background-color: green; */
+    }
+
+    .content-container h2 {
+        font-size: 1.7rem;
+    }
 
 }
 
