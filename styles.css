@@ -35,11 +35,11 @@ header {
     font-size: 1.5rem;
 }
 
-.home-hero {
+/* .home-hero {
     overflow: auto;
     padding: 5px 0;
     scrollbar-width: none;
-}
+} */
 
 .main-container {
     display: flex;
@@ -47,7 +47,7 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background-color: #acedff;
 }
 
@@ -66,6 +66,9 @@ section {
     align-items: center;
     padding: 0;
     height: 100%;
+    overflow: auto;
+    /* padding: 5px 0; */
+    scrollbar-width: none;
     /* background-color: rgb(99, 167, 255); */
 }
 
@@ -85,10 +88,10 @@ section.business-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     width: 80%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     scrollbar-width: none;
     /* background-color: rgb(13, 255, 13); */
 }
@@ -177,22 +180,24 @@ section.business-cards {
     /* background-color: aqua; */
 }
 
-.image-card-container {
-    width: 300px;
-}
-
 .card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+.image-card-container {
+    width: 300px;
+    height: 200px;
+}
+
 .card-content {
     margin: 0 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* max-height: 400px; */
+    max-height: 300px;
     height: 100%;
     /* background-color: aqua; */
 }
@@ -210,6 +215,8 @@ section.business-cards {
     height: 100%;
     background-color: #3a3939;
     color: #f2f0f0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .business-name h2 {
@@ -300,10 +307,10 @@ img.profile-picture {
     /* transform: scale(1.5); */
 }
 
-.modal-content img {
+/* .modal-content img {
     padding: 0;
     width: 100%;
-}
+} */
 
 .btn-close {
     position: absolute;
@@ -351,13 +358,19 @@ footer {
 /***********************Media Queries*************************/
 
 @media screen and (max-width: 600px) {
+
     .main-title {
         font-size: 1rem;
     }
+    
+    .image-card-container {
+        width: 300px;
+        height: 200px;
+    }
 
-    img.profile-picture {
-        width: 100px;
-        height: 100px;
+    .card-content {
+        max-height: 250px;
+        height: 100%;
     }
 
     .business-name {
@@ -372,6 +385,7 @@ footer {
     .content-container {
         width: 95%;
         height: 100%;
+        justify-content: start;
         /* background-color: green; */
     }
 
@@ -390,15 +404,6 @@ footer {
 
 @media screen and (max-width: 420px) {
 
-    .card {
-    transform: scale(.8);
-    }
-
-    .modal-content {
-        transform: scale(1); 
-        background-color: #00000000;
-    } 
-
     .main-title {
         font-size: .9rem;
     }
@@ -407,20 +412,36 @@ footer {
         height: 100%;
     }
 
+    
+    .image-card-container {
+        width: 250px;
+        height: 150px;
+    }
+
+    .card-content {
+        max-height: 250px;
+        height: 100%;
+    }
+
+    
 }
 
 @media screen and (max-width: 320px) {
-
+    
     header {
         padding: 10px;
     }
 
-    .card {
-        transform: scale(.9);
-    }
-
     .main-title {
         font-size: .75rem;
+    }
+    
+    .modal-content {
+        transform: scale(.9); 
+    } 
+    
+    .carousel {
+        padding-left: 0;
     }
     
     .card-content {
@@ -428,20 +449,20 @@ footer {
         height: 100%;
     }
 
+    .image-card-container {
+        width: 200px;
+        height: 150px;
+    }
+
+    .card p {
+        font-size: .8rem;
+        line-height: 1.3;
+        letter-spacing: 1.2px;
+    }
+    
     .business-name {
         max-height: 50px;
-    }
-
-    .carousel {
-        padding-left: 0;
-    }
-
-    .modal-content {
-        transform: scale(.9); 
-    } 
-
-    .image-card-container {
-        width: 250px;
+        height: 100%;
     }
 
     .business-name h2 {
@@ -449,7 +470,9 @@ footer {
     }
 
     .site-button {
-        padding: 8px;
+        padding: 3px;
+        font-size: 1rem;
+        letter-spacing: 1px;
     }
 
     footer {
