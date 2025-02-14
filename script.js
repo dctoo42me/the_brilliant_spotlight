@@ -362,17 +362,16 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.error("Modal elements not found!");
             return;
         }
-
         modalContent.innerHTML = `
         <div class="card">
             <img src="${business.image}" alt="${business.name}">
             <div class="card-content">
                 <div class="business-name">
                     <h2>${business.name}</h2>
-                </div>
-                <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
-                <p>${business.description}</p>
-                <button id="share-button">Share</button>
+                    </div>
+                    <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
+                    <button class="site-button" id="share-button" >Share</button>
+                    <p>${business.description}</p>
                 <div id="qr-code-container"></div>
             </div>
         </div>
@@ -380,23 +379,48 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         document.getElementById("share-button").addEventListener("click", () => {
             const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.name)}`;
+            const shareButton = document.getElementById("share-button");
+            let qrCodeContainer = document.getElementById("qr-code-container");
         
-            if (navigator.share) {
+            if (navigator.share && window.innerWidth < 768) {
+                // Mobile/Tablet: Use native sharing capabilities
                 navigator.share({
                     title: business.name,
                     text: `Check out this business: ${business.name}`,
-                    url: shareUrl, // Now correctly links to the modal
+                    url: shareUrl,
                 });
             } else {
-                if (!document.getElementById("qr-code")) {
-                    const qrCodeContainer = document.getElementById("qr-code-container");
+                // Desktop: Show QR code in a dismissible container
+                if (!qrCodeContainer.querySelector("#qr-code")) {
+                    // Clear any existing content first
+                    qrCodeContainer.innerHTML = "";
+                    // Create QR code image
                     const qrCode = document.createElement("img");
                     qrCode.id = "qr-code";
                     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(shareUrl)}`;
                     qrCodeContainer.appendChild(qrCode);
+                    qrCodeContainer.style.padding = "20px";
+        
+                    // Create close button
+                    const closeButton = document.createElement("button");
+                    closeButton.id = "qr-close-button";
+                    closeButton.textContent = "Close";
+                    closeButton.style.display = "block";
+                    closeButton.style.marginTop = "10px";
+                    closeButton.addEventListener("click", () => {
+                        qrCodeContainer.innerHTML = ""; // Clear QR code when closed
+                        qrCodeContainer.style.padding = "0";
+                        shareButton.style.display = "block"; // Show share button again when QR is closed
+                    });
+        
+                    qrCodeContainer.appendChild(closeButton);
+        
+                    // Hide share button when QR code is displayed
+                    shareButton.style.display = "none";
                 }
             }
         });
+        
 
         window.history.pushState({ business: business.name }, "", `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.name)}`);
         modal.classList.add("active");
