@@ -232,6 +232,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     const carousel = document.querySelector(".carousel");
     const leftBtn = document.querySelector(".carousel-btn.left");
     const rightBtn = document.querySelector(".carousel-btn.right");
+    const modal = document.querySelector(".modal");
+    const modalContent = document.querySelector(".modal-content");
+    const closeModal = document.querySelector(".btn-close");
+
+    let isSwiping = false;
+
 
     // Fetch business data from JSON file
     const response = await fetch("businesses.json");
@@ -261,8 +267,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Add all cards to carousel
     businesses.forEach((business) => {
-        carousel.appendChild(createCard(business));
+        const card = createCard(business);
+        card.setAttribute("data-business-id", business.name); // Ensure each card has a unique identifier
+        carousel.appendChild(card);
     });
+
+    // Now check if there is a businessId in the URL and open the modal
+    const params = new URLSearchParams(window.location.search);
+    const businessId = params.get("business");
+
+    if (businessId) {
+        const matchedBusiness = businesses.find(b => b.name === businessId);
+        if (matchedBusiness) {
+            openModal(matchedBusiness);
+        }
+    }
 
     let isAnimating = false;
     let cardWidth = getCardWidth(); // Initial card width calculation
@@ -333,7 +352,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     leftBtn.addEventListener("click", shiftRight);
     rightBtn.addEventListener("click", shiftLeft);
 
-    let isSwiping = false;
     let startX, moveX;
 
     carousel.addEventListener("touchstart", (e) => {
@@ -352,10 +370,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             else shiftRight();
         }
     });
-
-    const modal = document.querySelector(".modal");
-    const modalContent = document.querySelector(".modal-content");
-    const closeModal = document.querySelector(".btn-close");
 
     function openModal(business) {
         if (!modal || !modalContent) {
@@ -378,28 +392,27 @@ document.addEventListener("DOMContentLoaded", async function () {
         `;
 
         document.getElementById("share-button").addEventListener("click", () => {
-            const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.name)}`;
-            const shareButton = document.getElementById("share-button");
-            let qrCodeContainer = document.getElementById("qr-code-container");
+            const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}`;
         
             if (navigator.share && window.innerWidth < 768) {
-                // Mobile/Tablet: Use native sharing capabilities
+                // Mobile/Tablet: Use native sharing
                 navigator.share({
                     title: business.name,
                     text: `Check out this business: ${business.name}`,
                     url: shareUrl,
                 });
             } else {
-                // Desktop: Show QR code in a dismissible container
+                // Desktop: Generate QR code
+                let qrCodeContainer = document.getElementById("qr-code-container");
+        
                 if (!qrCodeContainer.querySelector("#qr-code")) {
-                    // Clear any existing content first
-                    qrCodeContainer.innerHTML = "";
+                    qrCodeContainer.innerHTML = ""; // Clear existing content
+        
                     // Create QR code image
                     const qrCode = document.createElement("img");
                     qrCode.id = "qr-code";
                     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(shareUrl)}`;
                     qrCodeContainer.appendChild(qrCode);
-                    qrCodeContainer.style.padding = "20px";
         
                     // Create close button
                     const closeButton = document.createElement("button");
@@ -409,17 +422,13 @@ document.addEventListener("DOMContentLoaded", async function () {
                     closeButton.style.marginTop = "10px";
                     closeButton.addEventListener("click", () => {
                         qrCodeContainer.innerHTML = ""; // Clear QR code when closed
-                        qrCodeContainer.style.padding = "0";
-                        shareButton.style.display = "block"; // Show share button again when QR is closed
                     });
         
                     qrCodeContainer.appendChild(closeButton);
-        
-                    // Hide share button when QR code is displayed
-                    shareButton.style.display = "none";
                 }
             }
         });
+        
         
 
         window.history.pushState({ business: business.name }, "", `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.name)}`);

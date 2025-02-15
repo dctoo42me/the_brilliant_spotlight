@@ -379,6 +379,38 @@ img#qr-code {
 }
 
 /***********************Media Queries*************************/
+@media (max-height: 699px) {
+    /* Styles for devices with a height less than 700px */
+    .modal-content {
+        transform: scale(.8);
+    }
+
+    .image-card-container {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .card-content {
+        max-height: 250px;
+        height: 100%;
+    }
+
+    .business-name {
+        max-height: 75px;
+    }
+
+
+    .content-container {
+        width: 95%;
+        height: 100%;
+        justify-content: start;
+        /* background-color: green; */
+    }
+
+    .content-container h2 {
+        font-size: 1.7rem;
+    }
+}
 
 @media (min-width: 601px) {
     .modal-content .card {
