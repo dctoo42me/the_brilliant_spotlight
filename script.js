@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     let isSwiping = false;
 
+    if (!carousel) return; // Exit if carousel is not found
+
     // Fetch business data from JSON file
     const response = await fetch("businesses.json");
     const businesses = await response.json();
