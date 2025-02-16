@@ -398,9 +398,9 @@ img#qr-code {
 /***********************Media Queries*************************/
 @media (max-height: 699px) {
     /* Styles for devices with a height less than 700px */
-    .modal-content {
+    /* .modal-content {
         transform: scale(.8);
-    }
+    } */
 
     .image-card-container {
         width: 250px;
