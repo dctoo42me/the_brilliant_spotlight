@@ -78,23 +78,32 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     function shiftLeft() {
         if (isAnimating) return;
-        isAnimating = true;
+    isAnimating = true;
 
-        updateCardWidth();
+    updateCardWidth();
 
-        const firstCard = carousel.firstElementChild;
-        const clone = firstCard.cloneNode(true);
-        carousel.appendChild(clone);
+    const firstCard = carousel.firstElementChild;
+    const clone = firstCard.cloneNode(true);
 
-        carousel.style.transition = "transform 0.5s ease-in-out";
-        carousel.style.transform = `translateX(-${cardWidth}px)`;
+    // Add event listener to the cloned card
+    const businessName = firstCard.getAttribute("data-business-id");
+    const business = businesses.find(b => b.name === businessName);
+    if (business) {
+        clone.addEventListener("click", function (e) {
+            if (!isSwiping) openModal(business);
+        });
+    }
 
-        setTimeout(() => {
-            firstCard.remove();
-            carousel.style.transition = "none";
-            carousel.style.transform = "translateX(0)";
-            isAnimating = false;
-        }, 500);
+    carousel.appendChild(clone);
+    carousel.style.transition = "transform 0.5s ease-in-out";
+    carousel.style.transform = `translateX(-${cardWidth}px)`;
+
+    setTimeout(() => {
+        firstCard.remove();
+        carousel.style.transition = "none";
+        carousel.style.transform = "translateX(0)";
+        isAnimating = false;
+    }, 500);
     }
 
     function shiftRight() {
@@ -105,6 +114,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     
         const lastCard = carousel.lastElementChild;
         const clone = lastCard.cloneNode(true);
+    
+        // Add event listener to the cloned card
+        const businessName = lastCard.getAttribute("data-business-id");
+        const business = businesses.find(b => b.name === businessName);
+        if (business) {
+            clone.addEventListener("click", function (e) {
+                if (!isSwiping) openModal(business);
+            });
+        }
+    
         carousel.insertBefore(clone, carousel.firstElementChild);
     
         carousel.style.transition = "none";
@@ -114,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             requestAnimationFrame(() => {
                 carousel.style.transition = "transform 0.5s ease-in-out";
                 carousel.style.transform = "translateX(0)";
-                
+    
                 setTimeout(() => {
                     lastCard.remove();
                     isAnimating = false;
