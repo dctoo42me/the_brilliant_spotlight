@@ -440,6 +440,11 @@ img#qr-code {
         font-size: 1rem;
     }
     
+    .modal-content {
+        width: 100%;
+        margin: 0 10px;
+    }
+
     .image-card-container {
         width: 300px;
         height: 200px;

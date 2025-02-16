@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (navigator.share && window.innerWidth < 768) {
                 navigator.share({
                     title: business.name,
-                    text: `Check out this business: ${business.name}`,
+                    text: `Check out this Local Business: ${business.name}`,
                     url: shareUrl,
                 });
             } else {
