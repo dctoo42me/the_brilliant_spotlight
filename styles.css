@@ -437,6 +437,7 @@ img#qr-code {
 
 .section-container {
     z-index: 10;
+    overflow: auto;
 }
 
 /*********************** Contact Form ***********************/
