@@ -519,8 +519,8 @@ img#qr-code {
 .social-link {
     display: inline-flex;
     align-items: center; /* Vertically align icon and text */
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
+    font-family: "Poppins", serif;
+    font-weight: 600;
     font-size: 1.2rem;
     text-decoration: none;
     color: #1877f2;
@@ -530,7 +530,13 @@ img#qr-code {
 
 .social-link i {
     margin-right: 0.5rem; /* Space between icon and text */
-    font-size: 1.5rem; /* Slightly larger icon */
+    font-size: 2rem; /* Slightly larger icon */
+    margin-bottom: 5px;
+}
+
+.social-link.facebook {
+    display: flex;
+    flex-direction: column;
 }
 
 .social-link.facebook:hover {
