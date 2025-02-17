@@ -249,3 +249,4 @@ document.addEventListener("DOMContentLoaded", async function () {
         } else closeModalFunction();
     });
 });
+

@@ -27,22 +27,22 @@ header {
     background-color: #000;
     padding: 20px;
     text-align: center;
+    z-index: 0;
 }
 
-.main-title {
-    text-decoration: none;
+.main-title h1 {
+    font-family: "Playfair Display", serif;
+    text-transform: uppercase;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
-/* 
-.home-hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background-color: red;
-} */
+
+.main-title a {
+    text-decoration: none;
+}
 
 .main-container {
     display: flex;
@@ -57,16 +57,12 @@ header {
 
 .main-container.cards-bg {
     position: relative;
-    /* background-color: rgb(99, 167, 255); */
-    /* background-color: rgb(204, 211, 251); */
-    /* background-color: rgb(173, 255, 101); */
-    /* background-color: rgb(255, 116, 0); */
     /* background-color: #acedff; */
 }
 
 
 .background-image {
-    background-image: url("images/TheBrilliantSpotlight_Logo_Yellow_Bright_Large.png");
+    background-image: url("images/spotlightLogoWhite.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70vh;
@@ -76,7 +72,7 @@ header {
     /* top: 0;
     left: 0; */
     z-index: 0;
-    opacity: .2;
+    opacity: .4;
 }
 
 img.cards-bg  {
@@ -120,16 +116,23 @@ section.business-cards {
 }
 
 .content-container h2 {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    text-transform: uppercase;
     font-size: 2rem;
     text-align: center;
+    color: #292929;
 }
 
 .content-container p {
+    font-family: "Poppins", serif;
+    font-weight: 400;
     font-size: 1.5rem;
     letter-spacing: 1px;
     margin-top: 15px;
     /* background-color: white; */
     padding: 10px;
+    color: #292929;
 }
 
 /* index-cards.html */
@@ -253,8 +256,10 @@ section.business-cards {
 }
 
 .business-name h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgb(255, 255, 255);
@@ -292,7 +297,7 @@ img.profile-picture {
     border: none;
     border-radius: 50px;
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 200;
     text-align: center;
     background-color: rgb(47, 78, 255);
     border: 2px solid rgb(47, 78, 255);
@@ -366,12 +371,20 @@ img.profile-picture {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 10px;
+    margin: 5px 0 10px;
 }
 
 .campaign {
-    padding: 10px 20px;
+    padding: 5px 20px;
     width: fit-content;
+}
+
+.create {
+    margin-top: 30px;
+}
+
+.top-mar-small {
+    margin-top: 10px;
 }
 
 footer {
@@ -422,6 +435,108 @@ img#qr-code {
     margin-top: 10px;
 }
 
+.section-container {
+    z-index: 10;
+}
+
+/*********************** Contact Form ***********************/
+/* General styling for the contact section */
+.contact-section {
+    max-width: 800px; /* Limit width for readability */
+    margin: 2rem auto; /* Center the section with spacing */
+    padding: 2rem; /* Add internal spacing */
+    background-color: #f5f5f5; /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align text and form elements */
+}
+
+/* Styling for the heading */
+.contact-section h2 {
+    font-family: "Poppins", serif; /* Match your brand font */
+    font-weight: 500; /* Bold weight for prominence */
+    font-size: 2.5rem; /* Large size for visibility */
+    color: #333; /* Neutral color for readability */
+    margin-bottom: 1.5rem; /* Space below the heading */
+}
+/* Styling for the form */
+.contact-section form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 1.5rem; /* Space between form elements */
+    align-items: center; /* Center-align form elements */
+}
+/* Styling for input fields and textarea */
+.contact-section input,
+.contact-section textarea {
+    width: 100%; /* Full width for inputs */
+    max-width: 500px; /* Limit maximum width */
+    padding: 0.75rem; /* Comfortable padding */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Readable text size */
+    font-family: inherit; /* Inherit font from parent */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+.contact-section input:focus,
+.contact-section textarea:focus {
+    outline: none; /* Remove default outline */
+    border-color: #ffcc00; /* Highlight with your brand color */
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.3); /* Subtle glow on focus */
+}
+.contact-section textarea {
+    min-height: 150px; /* Minimum height for textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+/* Styling for the submit button */
+.contact-section .site-button {
+    display: inline-block;
+    padding: 0.75rem 2rem; /* Comfortable padding */
+    background-color: #ffcc00; /* Vibrant brand color */
+    color: #333; /* Dark text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-family: "Poppins", serif; /* Match your brand font */
+    font-weight: 500; /* Bold weight */
+    max-width: 500px;
+    font-size: 1.2rem; /* Readable size */
+    cursor: pointer; /* Hand cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+.contact-section .site-button:hover {
+    background-color: #e6b800; /* Darker shade on hover */
+    color: #fff; /* White text on hover for contrast */
+    border: none;
+}
+
+/************* social links ******************/
+
+.social-links {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center; /* Vertically align icon and text */
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #1877f2;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-link i {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.5rem; /* Slightly larger icon */
+}
+
+.social-link.facebook:hover {
+    color: #ffcc00; /* Your brand color */
+}
+
 /***********************Media Queries*************************/
 @media (max-height: 699px) {
     /* Styles for devices with a height less than 700px */
@@ -463,8 +578,8 @@ img#qr-code {
 
 @media screen and (max-width: 600px) {
 
-    .main-title {
-        font-size: 1rem;
+    .main-title h1 {
+        font-size: 1.8rem;
     }
     
     .modal-content {
@@ -520,8 +635,8 @@ img#qr-code {
 
 @media screen and (max-width: 420px) {
 
-    .main-title {
-        font-size: .9rem;
+    .main-title h1{
+        font-size: 1.5rem;
     }
 
     .main-container {

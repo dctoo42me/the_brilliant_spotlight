@@ -15,32 +15,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="main-container cards-bg">
+        <div class="background-image"></div>
         <header class="main-title">
             <a href="index.html">
                 <h1>The Brilliant Spotlight</h1>
             </a>
         </header>
-        <section class="home-hero">
-            <div class="content-container">
-                <a href="index-cards.html"><img class="profile-picture" src="images/spotlightLogoBlack.png" alt="logo image" width="100%" height="auto"></a>
-                <h2>Shining a Light on Your Local Business</h2>
-                <div class="current-campaign create">
-                    <a class="site-button campaign" href="contact-form.html">Create a Campaign</a>
-                <!-- </div>
-                <div class="current-campaign"> -->
-                    <a class="site-button top-mar-small" href="index-cards.html">Current Campaign</a>
+        <div class="section-container">
+            <div class="contact-section">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST">
+                    <input type="text" name="name" autocomplete="off" placeholder="Your Name" required>
+                    <input type="email" name="email" autocomplete="off" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="site-button">Send</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61572468187655" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                        <i class="fab fa-facebook"></i> Follow us on Facebook
+                    </a>
                 </div>
-                
-                <p>
-                    At The Brilliant Spotlight, we believe every local business deserves a chance to shine. As a proud small business ourselves, we specialize in high-quality printing services and utilize EDDM (Every Door Direct Mail) to bring your message directly to the community. By combining modern tools with traditional outreach, we provide an affordable alternative to costly marketing campaigns.
-                </p>
             </div>
-        </section>       
+            
+        </div>
         <footer>
                 <p>&copy; 2024  All rights reserved.</p>
         </footer> 
