@@ -25,6 +25,8 @@ body {
 header {
     width: 100%;
     background-color: #000;
+    background-color: #1A237E;
+    /* background-color: #000080; */
     padding: 20px;
     text-align: center;
     z-index: 0;
@@ -50,8 +52,9 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    /* flex-grow: 1; */
-    background-color: #acedff;
+    /* background-color: #acedff; */
+    background-color: #ace5f6;
+    background-color: #B0C4DE;
     overflow: hidden;
 }
 
@@ -121,7 +124,7 @@ section.business-cards {
     text-transform: uppercase;
     font-size: 2rem;
     text-align: center;
-    color: #292929;
+    color: #1f1e1e;
 }
 
 .content-container p {
@@ -131,6 +134,7 @@ section.business-cards {
     letter-spacing: 1px;
     margin-top: 15px;
     /* background-color: white; */
+    /* text-align: justify; */
     padding: 10px;
     color: #292929;
 }
@@ -158,9 +162,12 @@ section.business-cards {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    line-height: normal;
     border: none;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    /* background: rgba(0, 0, 0, 0.6); */
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
+    /* color: white;   */
     font-size: 24px;
     cursor: pointer;
     transition: 0.3s;
@@ -172,6 +179,7 @@ section.business-cards {
 
 .carousel-btn:hover {
     background: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.343);
 }
 
 /* Positioning */
@@ -210,8 +218,8 @@ section.business-cards {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #242424;
-    /* background-color: aqua; */
+    /* background-color: #f8f5f5; */
+    background-color: #F0F8FF;
 }
 
 .card img {
@@ -245,7 +253,6 @@ section.business-cards {
     overflow-y: scroll;
     scrollbar-width: none;
     padding: 5px;
-    /* text-align: left; */
     border-radius: 2px;
     max-height: 300px;
     height: 100%;
@@ -257,12 +264,12 @@ section.business-cards {
 
 .business-name h2 {
     font-family: "Poppins", serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.5rem;
     font-style: italic;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgb(255, 255, 255);
+    color: #1f1e1e;
 }
 
 .business-name {
@@ -287,7 +294,7 @@ img.profile-picture {
     margin: 20px auto;
     display: block;
     /* background-color: #f3ef08; */
-    background-color: #ffff21;
+    background-color: #f7f75b;
 }
 
 .site-button {
@@ -299,20 +306,20 @@ img.profile-picture {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: rgb(47, 78, 255);
-    border: 2px solid rgb(47, 78, 255);
+    background-color: #4141f9;
+    border: 2px solid #3333FF;
     color:white;
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
-        background-color: rgb(255, 255, 255);
-        border: 2px solid rgb(47, 78, 255);
-        color: rgb(47, 78, 255);
+        background-color: white;
+        border: 2px solid #3333FF;
+        color:#3333FF;
     }
     &&:active{
-        background-color: rgb(47, 78, 255);
-        border: 2px solid white;
+        background-color: #3333FF;
+        border: 2px solid #3333FF;
         color:white;
     }
 }
@@ -377,6 +384,19 @@ img.profile-picture {
 .campaign {
     padding: 5px 20px;
     width: fit-content;
+    background-color: #23cc83;
+    border-color: #23cc83;
+    &&:hover {
+        color: white;
+        border-color: #23cc83;
+        background-color: white;
+        color: #23cc83;
+    }
+    &&:active {
+        background-color: #23cc83;
+        border-color: #23cc83;
+        color: white;
+    }
 }
 
 .create {
@@ -389,12 +409,10 @@ img.profile-picture {
 
 footer {
     width: 100%;
-    background-color: #000;
+    background-color: #1A237E;
     color: #fff;
     padding: 20px;
     text-align: center;
-    /* border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px; */
 }
 
 .progress {
@@ -433,6 +451,21 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
+    background-color: #23cc83;
+    border-color: #23cc83;
+    &&:hover {
+        color: white;
+        border-color: #23cc83;
+        background-color: white;
+        color: #23cc83;
+        cursor: pointer;
+    }
+    &&:active {
+        border-color: #23cc83;
+        background-color: #23cc83;
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .section-container.form {
@@ -570,6 +603,7 @@ img#qr-code {
         width: 95%;
         justify-content: start;
         /* background-color: green; */
+        padding-bottom: 20px;
     }
 
     .content-container h2 {
@@ -629,6 +663,8 @@ img#qr-code {
 
     .content-container p {
         font-size: 1.2rem;
+        letter-spacing: .5px;
+        line-height: 1.5;
     }
 
     .btn-close {
@@ -650,6 +686,12 @@ img#qr-code {
         height: 100%;
     }
 
+    .content-container p {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        text-align: left;
+        line-height: 1.6;
+    }
     
     .image-card-container {
         width: 300px;
