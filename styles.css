@@ -25,11 +25,22 @@ body {
 header {
     width: 100%;
     background-color: #000;
-    background-color: #1A237E;
-    /* background-color: #000080; */
+    background-color: #003366;
     padding: 20px;
     text-align: center;
     z-index: 0;
+}
+
+@keyframes flashColor {
+    0% {
+        color: white;
+    }
+    50% {
+        color: yellow;
+    }
+    100% {
+        color: white;
+    }
 }
 
 .main-title h1 {
@@ -40,6 +51,13 @@ header {
     font-style: normal;
     color: white;
     font-size: 2.5rem;
+
+    /* Animation properties */
+    animation-name: flashColor;
+    animation-duration: 5s; /* Duration of one full cycle */
+    animation-timing-function: ease-in-out; /* For a smooth transition */
+    animation-iteration-count: infinite; /* To loop the animation */
+    animation-delay: 0s; /* No delay before starting */
 }
 
 .main-title a {
@@ -52,9 +70,7 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    /* background-color: #acedff; */
-    background-color: #ace5f6;
-    background-color: #B0C4DE;
+    background-color: #F5F5F5;
     overflow: hidden;
 }
 
@@ -65,7 +81,7 @@ header {
 
 
 .background-image {
-    background-image: url("images/spotlightLogoWhite.png");
+    background-image: url("images/spotlightLogoBlack.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70vh;
@@ -75,7 +91,7 @@ header {
     /* top: 0;
     left: 0; */
     z-index: 0;
-    opacity: .4;
+    opacity: .2;
 }
 
 img.cards-bg  {
@@ -294,7 +310,7 @@ img.profile-picture {
     margin: 20px auto;
     display: block;
     /* background-color: #f3ef08; */
-    background-color: #f7f75b;
+    background-color: #eaea6e;
 }
 
 .site-button {
@@ -306,20 +322,20 @@ img.profile-picture {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #4141f9;
-    border: 2px solid #3333FF;
+    background-color: #7c8011;
+    border: 2px solid #7c8011;
     color:white;
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
         background-color: white;
-        border: 2px solid #3333FF;
-        color:#3333FF;
+        border: 2px solid #7c8011;
+        color:#7c8011;;
     }
     &&:active{
-        background-color: #3333FF;
-        border: 2px solid #3333FF;
+        background-color: #7c8011;
+        border: 2px solid #7c8011;
         color:white;
     }
 }
@@ -384,18 +400,19 @@ img.profile-picture {
 .campaign {
     padding: 5px 20px;
     width: fit-content;
-    background-color: #23cc83;
-    border-color: #23cc83;
+    background-color: #eaea6e;
+    border-color: #eaea6e;
+    color: rgb(80, 86, 7);
     &&:hover {
         color: white;
-        border-color: #23cc83;
+        border-color: #eaea6e;
         background-color: white;
-        color: #23cc83;
+        color: rgb(80, 86, 7);
     }
     &&:active {
-        background-color: #23cc83;
-        border-color: #23cc83;
-        color: white;
+        background-color:  #eaea6e;
+        border-color:  #eaea6e;
+        color: rgb(80, 86, 7);
     }
 }
 
@@ -409,7 +426,7 @@ img.profile-picture {
 
 footer {
     width: 100%;
-    background-color: #1A237E;
+    background-color: #282828;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -451,19 +468,20 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color: #23cc83;
-    border-color: #23cc83;
+    background-color: #eaea6e;
+    border-color: #eaea6e;
+    color: #282727;
     &&:hover {
         color: white;
-        border-color: #23cc83;
+        border-color: #eaea6e;
         background-color: white;
-        color: #23cc83;
+        color: #282727;
         cursor: pointer;
     }
     &&:active {
-        border-color: #23cc83;
-        background-color: #23cc83;
-        color: white;
+        border-color: #eaea6e;
+        background-color: #eaea6e;
+        color: #282727;
         cursor: pointer;
     }
 }
