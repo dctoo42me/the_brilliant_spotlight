@@ -25,13 +25,13 @@ body {
 header {
     width: 100%;
     background-color: #000;
-    background-color: #003366;
+    background-color: #8f8f64;
     padding: 20px;
     text-align: center;
     z-index: 0;
 }
 
-@keyframes flashColor {
+/* @keyframes flashColor {
     0% {
         color: white;
     }
@@ -41,7 +41,7 @@ header {
     100% {
         color: white;
     }
-}
+} */
 
 .main-title h1 {
     font-family: "Playfair Display", serif;
@@ -54,7 +54,7 @@ header {
 
     /* Animation properties */
     animation-name: flashColor;
-    animation-duration: 5s; /* Duration of one full cycle */
+    animation-duration: 3s; /* Duration of one full cycle */
     animation-timing-function: ease-in-out; /* For a smooth transition */
     animation-iteration-count: infinite; /* To loop the animation */
     animation-delay: 0s; /* No delay before starting */
@@ -70,7 +70,7 @@ header {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    background-color: #F5F5F5;
+    background-color: #ebebeb;
     overflow: hidden;
 }
 
@@ -91,7 +91,7 @@ header {
     /* top: 0;
     left: 0; */
     z-index: 0;
-    opacity: .2;
+    opacity: .04;
 }
 
 img.cards-bg  {
@@ -235,7 +235,7 @@ section.business-cards {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
     /* background-color: #f8f5f5; */
-    background-color: #F0F8FF;
+    background-color: #fcfeff;
 }
 
 .card img {
@@ -322,20 +322,20 @@ img.profile-picture {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #7c8011;
-    border: 2px solid #7c8011;
+    background-color: #b5b558;
+    border: 2px solid #b5b558;
     color:white;
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
         background-color: white;
-        border: 2px solid #7c8011;
-        color:#7c8011;;
+        border: 2px solid rgb(80, 86, 7);
+        color: rgb(80, 86, 7);
     }
     &&:active{
-        background-color: #7c8011;
-        border: 2px solid #7c8011;
+        background-color: #b5b558;
+        border: 2px solid #b5b558;
         color:white;
     }
 }
@@ -400,19 +400,19 @@ img.profile-picture {
 .campaign {
     padding: 5px 20px;
     width: fit-content;
-    background-color: #eaea6e;
-    border-color: #eaea6e;
-    color: rgb(80, 86, 7);
+    background-color: #3f8ebc;
+    border-color:  #3f8ebc;
+    color: white;
     &&:hover {
         color: white;
-        border-color: #eaea6e;
+        border-color:rgb(80, 86, 7);
         background-color: white;
         color: rgb(80, 86, 7);
     }
     &&:active {
-        background-color:  #eaea6e;
-        border-color:  #eaea6e;
-        color: rgb(80, 86, 7);
+        background-color:  #3f8ebc;
+        border-color:  #3f8ebc;
+        color: white;
     }
 }
 
@@ -426,7 +426,7 @@ img.profile-picture {
 
 footer {
     width: 100%;
-    background-color: #282828;
+    background-color: #4d4d4d;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -468,20 +468,20 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color: #eaea6e;
-    border-color: #eaea6e;
-    color: #282727;
+    background-color :#3f8ebc;
+    border-color: #3f8ebc;
+    color: white;
     &&:hover {
         color: white;
-        border-color: #eaea6e;
+        border-color: #282727;
         background-color: white;
         color: #282727;
         cursor: pointer;
     }
     &&:active {
-        border-color: #eaea6e;
-        background-color: #eaea6e;
-        color: #282727;
+        border-color: #3f8ebc;
+        background-color:#3f8ebc;;
+        color: white;
         cursor: pointer;
     }
 }
