@@ -315,16 +315,16 @@ img.profile-picture {
 
 .site-button {
     text-decoration: none;
-    padding: 5px;
+    padding: 5px 15px;
     width: 100%;
     border: none;
     border-radius: 50px;
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #b5b558;
-    border: 2px solid #b5b558;
-    color:white;
+    background-color: #4D9DE0;
+    border: 2px solid #4D9DE0;
+    color: white;
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
@@ -389,6 +389,9 @@ img.profile-picture {
 }
 
 /****************************************************************/
+.hide {
+    display: none;
+}
 .current-campaign {
     display: flex;
     flex-direction: column;
@@ -398,10 +401,11 @@ img.profile-picture {
 }
 
 .campaign {
+    /* display: none; */
     padding: 5px 20px;
     width: fit-content;
-    background-color: #3f8ebc;
-    border-color:  #3f8ebc;
+    background-color: #003F91;
+    border-color:  #003F91;
     color: white;
     &&:hover {
         color: white;
@@ -410,8 +414,8 @@ img.profile-picture {
         color: rgb(80, 86, 7);
     }
     &&:active {
-        background-color:  #3f8ebc;
-        border-color:  #3f8ebc;
+        background-color:  #8F8F64;
+        border-color:  #8F8F64;
         color: white;
     }
 }
@@ -426,7 +430,7 @@ img.profile-picture {
 
 footer {
     width: 100%;
-    background-color: #4d4d4d;
+    background-color: #191919;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -468,8 +472,8 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color :#3f8ebc;
-    border-color: #3f8ebc;
+    background-color :#8F8F64;
+    border-color: #8F8F64;
     color: white;
     &&:hover {
         color: white;
@@ -479,8 +483,8 @@ img#qr-code {
         cursor: pointer;
     }
     &&:active {
-        border-color: #3f8ebc;
-        background-color:#3f8ebc;;
+        border-color: #4D9DE0;
+        background-color:#4D9DE0;
         color: white;
         cursor: pointer;
     }
