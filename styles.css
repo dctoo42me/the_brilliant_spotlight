@@ -31,18 +31,6 @@ header {
     z-index: 0;
 }
 
-/* @keyframes flashColor {
-    0% {
-        color: white;
-    }
-    50% {
-        color: yellow;
-    }
-    100% {
-        color: white;
-    }
-} */
-
 .main-title h1 {
     font-family: "Playfair Display", serif;
     text-transform: uppercase;
@@ -51,13 +39,6 @@ header {
     font-style: normal;
     color: white;
     font-size: 2.5rem;
-
-    /* Animation properties */
-    animation-name: flashColor;
-    animation-duration: 3s; /* Duration of one full cycle */
-    animation-timing-function: ease-in-out; /* For a smooth transition */
-    animation-iteration-count: infinite; /* To loop the animation */
-    animation-delay: 0s; /* No delay before starting */
 }
 
 .main-title a {
@@ -65,11 +46,12 @@ header {
 }
 
 .main-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-color: #ebebeb;
     overflow: hidden;
 }
@@ -491,20 +473,31 @@ img#qr-code {
 }
 
 .section-container.form {
-    z-index: 10;
-    overflow: auto;
+    /* z-index: 10; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* height: 100%; */
+    /* background-color: red; */
+    overflow: hidden;
 }
 
 /*********************** Contact Form ***********************/
 /* General styling for the contact section */
 .contact-section {
     max-width: 800px; /* Limit width for readability */
+    width: 100%;
+    height: 100%;
     margin: 2rem auto; /* Center the section with spacing */
     padding: 2rem; /* Add internal spacing */
     background-color: #f5f5f5; /* Light background for contrast */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     text-align: center; /* Center-align text and form elements */
+    flex: 1;
+    flex-direction: column;
+    overflow-y: hidden;
 }
 
 /* Styling for the heading */
@@ -515,55 +508,21 @@ img#qr-code {
     color: #333; /* Neutral color for readability */
     margin-bottom: 1.5rem; /* Space below the heading */
 }
-/* Styling for the form */
-.contact-section form {
-    display: flex;
-    flex-direction: column; /* Stack form elements vertically */
-    gap: 1.5rem; /* Space between form elements */
-    align-items: center; /* Center-align form elements */
-}
-/* Styling for input fields and textarea */
-.contact-section input,
-.contact-section textarea {
-    width: 100%; /* Full width for inputs */
-    max-width: 500px; /* Limit maximum width */
-    padding: 0.75rem; /* Comfortable padding */
-    border: 1px solid #ccc; /* Subtle border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1rem; /* Readable text size */
-    font-family: inherit; /* Inherit font from parent */
-    transition: border-color 0.3s ease; /* Smooth border color transition */
-}
-.contact-section input:focus,
-.contact-section textarea:focus {
-    outline: none; /* Remove default outline */
-    border-color: #ffcc00; /* Highlight with your brand color */
-    box-shadow: 0 0 5px rgba(255, 204, 0, 0.3); /* Subtle glow on focus */
-}
-.contact-section textarea {
-    min-height: 150px; /* Minimum height for textarea */
-    resize: vertical; /* Allow vertical resizing only */
-}
-/* Styling for the submit button */
-.contact-section .site-button {
-    display: inline-block;
-    padding: 0.75rem 2rem; /* Comfortable padding */
-    background-color: #ffcc00; /* Vibrant brand color */
-    color: #333; /* Dark text for contrast */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    font-family: "Poppins", serif; /* Match your brand font */
-    font-weight: 500; /* Bold weight */
-    max-width: 500px;
-    font-size: 1.2rem; /* Readable size */
-    cursor: pointer; /* Hand cursor on hover */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-}
-.contact-section .site-button:hover {
-    background-color: #e6b800; /* Darker shade on hover */
-    color: #fff; /* White text on hover for contrast */
+
+
+
+.contact-section iframe {
+    flex: 1;
+    height: 100%;
+    width: 100%;
     border: none;
 }
+
+.upload-link {
+    margin-bottom: 20px;
+}
+
+/* Styling for the form */
 
 /************* social links ******************/
 
