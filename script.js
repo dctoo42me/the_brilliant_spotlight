@@ -459,7 +459,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.error("Modal elements not found!");
             return;
         }
-        const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}`;
+        // Use a unique timestamp or business ID in the URL to force re-scraping
+        const timestamp = Date.now();
+        const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}&v=${timestamp}`;
 
         modalContent.innerHTML = `
             <div class="card">
