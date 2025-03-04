@@ -660,7 +660,26 @@ img#qr-code {
 
     .contact-section {
         margin: 0;
-        padding: 30px 0 0;
+        padding: 20px 0 0;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-link {
+        font-size: 1rem;
+        margin: .5rem 0 .5rem;
+    }
+
+    .upload-link {
+        margin-bottom: 1rem;
+    }
+
+    .social-link.facebook {
+        margin: 0;
+        padding: 0;
     }
 
 }
