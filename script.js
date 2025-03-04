@@ -258,6 +258,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const closeModal = document.querySelector(".btn-close");
 
     let isSwiping = false;
+    let isSharing = false;
 
     if (!carousel) return; // Exit if carousel is not found
 
@@ -341,7 +342,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const params = new URLSearchParams(window.location.search);
     const businessId = params.get("business");
     if (businessId) {
-        const matchedBusiness = businesses.find(b => b.id === parseInt(businessId) || b.name === businessId);
+        const matchedBusiness = businesses.find(b => b.id === parseInt(businessId));
         if (matchedBusiness) {
             openModal(matchedBusiness);
         }
@@ -459,7 +460,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.error("Modal elements not found!");
             return;
         }
-        // Use a unique timestamp or business ID in the URL to force re-scraping
+        // Use a unique timestamp to force re-scraping
         const timestamp = Date.now();
         const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}&v=${timestamp}`;
 
@@ -482,10 +483,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         document.getElementById("share-button").addEventListener("click", () => {
             if (navigator.share && window.innerWidth < 768) {
+                isSharing = true;
                 navigator.share({
                     title: business.name,
                     text: `Check out this Local Business: ${business.name}`,
                     url: shareUrl,
+                }).then(() => {
+                    isSharing = false;
+                    console.log("Share completed successfully");
+                }).catch((error) => {
+                    console.error("Share failed:", error);
+                    isSharing = false;
+                    alert("Sharing failed. Please try again or use the QR code option.");
                 });
             } else {
                 let qrCodeContainer = document.getElementById("qr-code-container");
@@ -521,14 +530,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function closeModalFunction() {
-        modal.classList.remove("active");
-        carousel.style.pointerEvents = "auto";
-        window.history.pushState({}, "", window.location.origin + window.location.pathname);
-        leftBtn.style.display = "block";
-        rightBtn.style.display = "block";
+        if (!isSharing) {
+            modal.classList.remove("active");
+            carousel.style.pointerEvents = "auto";
+            window.history.pushState({}, "", window.location.origin + window.location.pathname);
+            leftBtn.style.display = "block";
+            rightBtn.style.display = "block";
 
-        // Reset OG meta tags to default when closing the modal
-        updateOGMeta();
+            // Reset OG meta tags to default when closing the modal
+            updateOGMeta();
+        }
     }
 
     closeModal.addEventListener("click", closeModalFunction);
