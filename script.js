@@ -266,47 +266,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const response = await fetch("businesses.json");
     const businesses = await response.json();
 
-    // Define the default OG image (from your HTML)
-    const DEFAULT_OG_IMAGE = "https://raw.githubusercontent.com/dctoo42me/the_brilliant_spotlight/refs/heads/main/images/TheBrilliantSpotlight_OG_image_YELLOW.png";
-
-    // Function to set or reset OG meta tags
-    function updateOGMeta(business = null) {
-        let ogImage = document.querySelector('meta[property="og:image"]');
-        let ogTitle = document.querySelector('meta[property="og:title"]');
-        let ogDescription = document.querySelector('meta[property="og:description"]');
-
-        if (!ogImage) {
-            ogImage = document.createElement('meta');
-            ogImage.setAttribute('property', 'og:image');
-            document.head.appendChild(ogImage);
-        }
-        if (!ogTitle) {
-            ogTitle = document.createElement('meta');
-            ogTitle.setAttribute('property', 'og:title');
-            document.head.appendChild(ogTitle);
-        }
-        if (!ogDescription) {
-            ogDescription = document.createElement('meta');
-            ogDescription.setAttribute('property', 'og:description');
-            document.head.appendChild(ogDescription);
-        }
-
-        if (business) {
-            // Set business-specific OG data
-            ogImage.setAttribute('content', business.image);
-            ogTitle.setAttribute('content', business.name);
-            ogDescription.setAttribute('content', `Check out ${business.name} featured by The Brilliant Spotlight.`);
-        } else {
-            // Reset to default OG data
-            ogImage.setAttribute('content', DEFAULT_OG_IMAGE);
-            ogTitle.setAttribute('content', 'The Brilliant Spotlight');
-            ogDescription.setAttribute('content', 'Boost your local reach with Every Door Direct Mail! Affordable, targeted print ads designed to put your business in the spotlight and drive results');
-        }
-    }
-
-    // Initial reset to default OG meta tags
-    updateOGMeta();
-
     // Function to create cards dynamically
     function createCard(business) {
         const card = document.createElement("div");
@@ -478,9 +437,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
         `;
 
-        // Update OG meta tags for this business
-        updateOGMeta(business);
-
         document.getElementById("share-button").addEventListener("click", () => {
             if (navigator.share && window.innerWidth < 768) {
                 isSharing = true;
@@ -537,8 +493,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             leftBtn.style.display = "block";
             rightBtn.style.display = "block";
 
-            // Reset OG meta tags to default when closing the modal
-            updateOGMeta();
         }
     }
 
