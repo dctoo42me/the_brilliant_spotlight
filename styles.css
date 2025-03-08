@@ -111,12 +111,14 @@ section.business-cards {
     justify-content: center;
     width: 80%;
     height: 100%;
+    margin-top: 20px;
     /* overflow-y: scroll; */
     scrollbar-width: none;
     /* background-color: rgb(13, 255, 13); */
 }
 
 .content-container h2 {
+    margin-top: 20px;
     font-family: "Poppins", serif;
     font-weight: 500;
     text-transform: uppercase;
@@ -135,6 +137,21 @@ section.business-cards {
     /* text-align: justify; */
     padding: 10px;
     color: #292929;
+}
+
+.city-bg-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("images/city_spotlight_2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* max-height: 500px; */
+    height: 100%;
+    width: 100%;
+    /* background-color: white; */
+    /* padding-top: 20px; */
 }
 
 /* index-cards.html */
