@@ -304,8 +304,8 @@ img.profile-picture {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #4D9DE0;
-    border: 2px solid #4D9DE0;
+    background-color: #0087F9;
+    border: 2px solid #0087F9;
     color: white;
     text-transform: capitalize;
     transition: color 500ms;
@@ -454,8 +454,8 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color :#8F8F64;
-    border-color: #8F8F64;
+    background-color :#3c576e;
+    border-color: #3c576e;
     color: white;
     &&:hover {
         color: white;
