@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 isSharing = true;
                 navigator.share({
                     title: business.name,
-                    text: `Check out this Local Business: ${business.name}`,
+                    text: `${business.name} - Your Community Favorite!`,
                     url: shareUrl,
                 }).then(() => {
                     isSharing = false;
