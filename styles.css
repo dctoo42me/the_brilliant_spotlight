@@ -32,11 +32,10 @@ header {
 }
 
 .main-title h1 {
-    font-family: "Playfair Display", serif;
+    font-family: "Poppins", serif;
     text-transform: uppercase;
     font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+    font-weight: 500;
     color: white;
     font-size: 2.5rem;
 }
@@ -309,7 +308,7 @@ img.profile-picture {
     margin: 20px auto;
     display: block;
     /* background-color: #f3ef08; */
-    background-color: #eaea6e;
+    background-color: #eeee19;
 }
 
 .site-button {
@@ -610,6 +609,10 @@ img#qr-code {
     .content-container h2 {
         font-size: 1.7rem;
     }
+    
+    .content-container p {
+        color: #424242;
+    }
 }
 
 @media (min-width: 601px) {
@@ -663,9 +666,10 @@ img#qr-code {
     }
 
     .content-container p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         letter-spacing: .5px;
         line-height: 1.5;
+        color: #424242;
     }
 
     .btn-close {
@@ -704,7 +708,7 @@ img#qr-code {
 @media screen and (max-width: 420px) {
 
     .main-title h1{
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .main-container {
@@ -712,10 +716,10 @@ img#qr-code {
     }
 
     .content-container p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         letter-spacing: 1px;
         text-align: left;
-        line-height: 1.6;
+        line-height: 1.4;
     }
     
     .image-card-container {
@@ -737,8 +741,8 @@ img#qr-code {
         padding: 10px;
     }
 
-    .main-title {
-        font-size: .75rem;
+    .main-title h1 {
+        font-size: 1.2rem;
     }
 
     .modal-content {
@@ -755,6 +759,10 @@ img#qr-code {
     }
 
     .content-container p {
+        font-size: 1.2rem;
+    }
+
+    .content-container h2 {
         font-size: 1.3rem;
     }
 
@@ -778,7 +786,7 @@ img#qr-code {
     }
 
     .site-button {
-        padding: 3px;
+        padding: 5px 10px;
         font-size: 1rem;
         letter-spacing: 1px;
     }
