@@ -708,7 +708,7 @@ img#qr-code {
 @media screen and (max-width: 420px) {
 
     .main-title h1{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .main-container {
@@ -720,6 +720,9 @@ img#qr-code {
         letter-spacing: 1px;
         text-align: left;
         line-height: 1.4;
+    }
+    .content-container h2 {
+        line-height: 1.2;
     }
     
     .image-card-container {
@@ -742,7 +745,7 @@ img#qr-code {
     }
 
     .main-title h1 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .modal-content {
