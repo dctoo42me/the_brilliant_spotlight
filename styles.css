@@ -577,6 +577,11 @@ img#qr-code {
     color: #ffcc00; /* Your brand color */
 }
 
+.rawpixel {
+    font-size: x-small;
+    color: #efefef;
+}
+
 /***********************Media Queries*************************/
 @media (max-height: 699px) {
     /* Styles for devices with a height less than 700px */
