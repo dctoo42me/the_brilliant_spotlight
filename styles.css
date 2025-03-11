@@ -735,8 +735,8 @@ img#qr-code {
         height: 100%;
     }
 
-    .modal-content {
-        max-width: 300px;
+    .modal-content .card {
+        max-height: 90vh ;
     }
 
     .content-container p {
