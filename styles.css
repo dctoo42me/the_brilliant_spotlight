@@ -737,11 +737,9 @@ img#qr-code {
 
     .modal-content {
         max-width: 90vw;
+        scale: .9;
     }
 
-    .modal-content .card {
-        max-height: 80vh ;
-    }
 
     .content-container p {
         font-size: 1.3rem;
