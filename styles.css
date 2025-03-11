@@ -225,9 +225,8 @@ section.business-cards {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 300px; */
+    max-width: 500px;
     width: 100%;
-    /* max-height: 50vh; */
     height: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
@@ -583,11 +582,28 @@ img#qr-code {
 }
 
 /***********************Media Queries*************************/
+@media (max-height: 801px) {
+    .modal-content {
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    .modal-content.card {
+        /* height: 100%; */
+        width: 100%;
+    }
+}
 @media (max-height: 699px) {
     /* Styles for devices with a height less than 700px */
-    /* .modal-content .card {
-        transform: scale(.8);
-    } */
+    .modal-content {
+        max-width: 300px;
+        width: 100%;
+    }
+    
+    .modal-content.card {
+        /* height: 100%; */
+        width: 100%;
+    }
 
     .image-card-container {
         width: 250px;
@@ -622,7 +638,7 @@ img#qr-code {
 
 @media (min-width: 601px) {
     /* .modal-content .card {
-        transform: scale(1.3);
+        transform: scale(.5);
     } */
 }
 
@@ -633,7 +649,6 @@ img#qr-code {
     }
     
     .modal-content {
-        width: 100%;
         margin: 0 10px;
     }
 
