@@ -735,6 +735,10 @@ img#qr-code {
         height: 100%;
     }
 
+    .modal-content {
+        max-width: 300px;
+    }
+
     .content-container p {
         font-size: 1.3rem;
         letter-spacing: 1px;
