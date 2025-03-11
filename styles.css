@@ -737,7 +737,7 @@ img#qr-code {
 
     .modal-content {
         max-width: 90vw;
-        scale: .9;
+        transform: scale(.9);
     }
 
 
