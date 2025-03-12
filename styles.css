@@ -337,6 +337,13 @@ img.profile-picture {
     }
 }
 
+.site-button.save-ad {
+    background-color: #28a745; /* Green for "Save" action */
+    border: 2px solid #28a745;
+    margin-top: 10px; /* Spacing between buttons */
+}
+
+
 /* ****************************Modal****************************/
 .modal {
     display: none; /* Hidden by default */
@@ -734,12 +741,14 @@ img#qr-code {
     .main-container {
         height: 100%;
     }
-
+/* 
     .modal-content {
-        max-width: 95vw;
-        transform: scale(.8);
+        max-width: 100vw;
     }
 
+    .card {
+        max-height: 600px;
+    } */
 
     .content-container p {
         font-size: 1.3rem;
@@ -762,6 +771,19 @@ img#qr-code {
     }
 
     
+}
+@media (max-height: 668px) {
+
+    .modal-content {
+
+        max-width: 360px;
+        width: 100%;
+        /* transform: scale(.8); */
+    }
+
+    .card {
+        max-height: 600px;
+    }
 }
 
 @media screen and (max-width: 320px) {

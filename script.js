@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         <h2>${business.name}</h2>
                     </div>
                     <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
+                    <a class="site-button save-ad" href="${business.image}" download="${business.name}_deal.png">Save Ad</a>
                     <button class="site-button" id="share-button">Share</button>
                     <div id="qr-code-container"></div>
                 </div>
