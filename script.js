@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     <h2>${business.name}</h2>
                 </div>
                 <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
-                <a class="site-button save-ad" href="${business.image}" download="${business.name}_ad.png" type="image/png">Save Ad</a>
+                <a class="site-button save-ad" href="#" id="save-ad-link">Save Ad</a>
                 <button class="site-button" id="share-button">Share</button>
                 <div id="qr-code-container"></div>
             </div>
@@ -194,17 +194,18 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Add event listener to the Save Deal button
     const saveButton = modalContent.querySelector(".save-ad");
     saveButton.addEventListener("click", async (e) => {
-        e.preventDefault(); // Prevent default download behavior
+        e.preventDefault(); // Prevent default link behavior
 
         if (canShareFiles) {
             try {
                 // Fetch the image as a blob
                 const response = await fetch(business.image);
+                if (!response.ok) throw new Error("Image fetch failed");
                 const blob = await response.blob();
                 const file = new File([blob], `${business.name}_deal.png`, { type: 'image/png' });
 
                 // Check if the browser can share files
-                if (navigator.canShare({ files: [file] })) {
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
                     await navigator.share({
                         files: [file],
                         title: `Save ${business.name} Deal`,
@@ -214,13 +215,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             } catch (error) {
                 console.error("Share failed:", error);
+                // Fallback to download if sharing fails
             }
         }
 
-        // Fallback: Use the download attribute if sharing isn't supported
-        const isMobileFallback = isMobile ? "After clicking, long-press the image and select 'Save to Photos'." : "Click to download the image.";
+        // Fallback: Trigger download
+        const isMobileFallback = isMobile ? "Long-press the image to save to Photos." : "Click to download the image.";
         alert(isMobileFallback);
-        window.location.href = business.image; // Trigger the download
+        // window.location.href = business.image;
     });
 
         document.getElementById("share-button").addEventListener("click", () => {
