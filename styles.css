@@ -343,6 +343,13 @@ img.profile-picture {
     margin-top: 10px; /* Spacing between buttons */
 }
 
+.save-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+}
+
 
 /* ****************************Modal****************************/
 .modal {

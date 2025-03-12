@@ -173,19 +173,55 @@ document.addEventListener("DOMContentLoaded", async function () {
         const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}&v=${timestamp}`;
 
         modalContent.innerHTML = `
-            <div class="card">
-                <img src="${business.image}" alt="${business.name}">
-                <div class="card-content">
-                    <div class="business-name">
-                        <h2>${business.name}</h2>
-                    </div>
-                    <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
-                    <a class="site-button save-ad" href="${business.image}" download="${business.name}_deal.png">Save Ad</a>
-                    <button class="site-button" id="share-button">Share</button>
-                    <div id="qr-code-container"></div>
+        <div class="card">
+            <img src="${business.image}" alt="${business.name}">
+            <div class="card-content">
+                <div class="business-name">
+                    <h2>${business.name}</h2>
                 </div>
+                <a class="site-button" href="${business.website}" target="_blank">Visit Website</a>
+                <a class="site-button save-ad" href="${business.image}" download="${business.name}_ad.png" type="image/png">Save Ad</a>
+                <button class="site-button" id="share-button">Share</button>
+                <div id="qr-code-container"></div>
             </div>
+        </div>
         `;
+
+        // Detect if the user is on a mobile device with share support
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const canShareFiles = isMobile && navigator.share && navigator.canShare;
+
+    // Add event listener to the Save Deal button
+    const saveButton = modalContent.querySelector(".save-ad");
+    saveButton.addEventListener("click", async (e) => {
+        e.preventDefault(); // Prevent default download behavior
+
+        if (canShareFiles) {
+            try {
+                // Fetch the image as a blob
+                const response = await fetch(business.image);
+                const blob = await response.blob();
+                const file = new File([blob], `${business.name}_deal.png`, { type: 'image/png' });
+
+                // Check if the browser can share files
+                if (navigator.canShare({ files: [file] })) {
+                    await navigator.share({
+                        files: [file],
+                        title: `Save ${business.name} Deal`,
+                        text: `Save this deal from ${business.name} to your Photos!`,
+                    });
+                    return; // Exit after sharing
+                }
+            } catch (error) {
+                console.error("Share failed:", error);
+            }
+        }
+
+        // Fallback: Use the download attribute if sharing isn't supported
+        const isMobileFallback = isMobile ? "After clicking, long-press the image and select 'Save to Photos'." : "Click to download the image.";
+        alert(isMobileFallback);
+        window.location.href = business.image; // Trigger the download
+    });
 
         document.getElementById("share-button").addEventListener("click", () => {
             if (navigator.share && window.innerWidth < 768) {
