@@ -202,14 +202,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                 const response = await fetch(business.image);
                 if (!response.ok) throw new Error("Image fetch failed");
                 const blob = await response.blob();
-                const file = new File([blob], `${business.name}_deal.png`, { type: 'image/png' });
+                const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
 
                 // Check if the browser can share files
                 if (navigator.canShare && navigator.canShare({ files: [file] })) {
                     await navigator.share({
                         files: [file],
-                        title: `Save ${business.name} Deal`,
-                        text: `Save this deal from ${business.name} to your Photos!`,
+                        title: `Save ${business.name} Ad`,
+                        text: `Save this Ad from ${business.name} to your Photos!`,
                     });
                     return; // Exit after sharing
                 }
