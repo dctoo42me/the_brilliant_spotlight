@@ -174,7 +174,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         modalContent.innerHTML = `
         <div class="card">
+            <div class="modal-image-card-container">
             <img src="${business.image}" alt="${business.name}">
+            </div>
             <div class="card-content">
                 <div class="business-name">
                     <h2>${business.name}</h2>
@@ -220,7 +222,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Fallback: Trigger download
-        const isMobileFallback = isMobile ? "Long-press the image to save to Photos." : "Click to download the image.";
+        const isMobileFallback = isMobile ? "Long-press the image to save to Photos." : "Right-Click and save to download the Ad.";
         alert(isMobileFallback);
         // window.location.href = business.image;
     });
