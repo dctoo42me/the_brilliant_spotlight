@@ -774,7 +774,7 @@ img#qr-code {
     }
 
     .modal .card {
-        max-width: 280px;
+        max-width: 300px;
     }
 
     .content-container p {
@@ -817,9 +817,8 @@ img#qr-code {
         font-size: 1.3rem;
     }
 
-    .image-card-container {
-        width: 200px;
-        height: 150px;
+    .modal .card {
+        width: 250px;
     }
 
     .card p {
