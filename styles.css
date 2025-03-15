@@ -778,12 +778,6 @@ img#qr-code {
         max-width: 280px;
     }
 
-    .modal-image-card-container {
-        width: 100%;
-        max-height: 50vh;
-        height: 100%;
-    }
-
     .content-container h2 {
         font-size: 1.5rem;
     }
@@ -798,7 +792,9 @@ img#qr-code {
     .content-container h2 {
         line-height: 1.2;
     }
-    
+    .create .site-button {
+        padding: 4px 10px;
+    }
 }
 
 @media screen and (max-width: 389px) {
@@ -829,13 +825,7 @@ img#qr-code {
     }
 
     .modal .card {
-        max-width: 220px;
-    }
-
-    .modal-image-card-container {
-        width: 100%;
-        max-height: 50vh;
-        height: 100%;
+        width: 280px;
     }
 
     .card p {
