@@ -778,6 +778,12 @@ img#qr-code {
         max-width: 280px;
     }
 
+    .modal-image-card-container {
+        width: 100%;
+        max-height: 50vh;
+        height: 100%;
+    }
+
     .content-container h2 {
         font-size: 1.5rem;
     }
@@ -823,7 +829,13 @@ img#qr-code {
     }
 
     .modal .card {
-        width: 280px;
+        max-width: 220px;
+    }
+
+    .modal-image-card-container {
+        width: 100%;
+        max-height: 50vh;
+        height: 100%;
     }
 
     .card p {
