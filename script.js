@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Fallback: Trigger download
-        const isMobileFallback = isMobile ? "Long-press the image to save to Photos." : "Right-Click and save to download the Ad.";
+        const isMobileFallback = isMobile ? "Long-press or Right-click to save or download the Ad." : "Long-press or Right-click to save or download the Ad.";
         alert(isMobileFallback);
         // window.location.href = business.image;
     });

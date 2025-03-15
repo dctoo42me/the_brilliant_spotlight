@@ -109,8 +109,8 @@ section.business-cards {
     align-items: center;
     /* justify-content: center; */
     width: 80%;
-    height: 100%;
-    margin-top: 20px;
+    /* height: 100%; */
+    margin: 20px 0;
     /* overflow-y: scroll; */
     scrollbar-width: none;
     /* background-color: rgb(13, 255, 13); */
@@ -365,6 +365,20 @@ img.profile-picture {
     color: #666;
     margin-top: 5px;
     text-align: center;
+}
+
+.template-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+}
+
+.template-container img {
+    width: 100%;
+}
+
+.template-container .temp {
+    margin: 20px;
 }
 
 
