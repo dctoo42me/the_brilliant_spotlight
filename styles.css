@@ -759,7 +759,7 @@ img#qr-code {
     }
 }
 
-@media  (max-width: 440px) /*below 440px*/ {
+@media  (max-width: 420px) /*below 420px*/ {
 
     .main-title h1{
         font-size: 1.6rem;
@@ -775,7 +775,7 @@ img#qr-code {
     }
 
     .modal .card {
-        max-width: 300px;
+        max-width: 280px;
     }
 
     .content-container h2 {
@@ -795,7 +795,7 @@ img#qr-code {
     
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 389px) {
     
     header {
         padding: 10px;
@@ -823,7 +823,7 @@ img#qr-code {
     }
 
     .modal .card {
-        width: 250px;
+        width: 280px;
     }
 
     .card p {
