@@ -184,6 +184,7 @@ section.business-cards {
     color: rgba(0, 0, 0, 0.6);
     /* color: white;   */
     font-size: 24px;
+    padding: 10px 10px;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
@@ -393,12 +394,12 @@ img.profile-picture {
     position: absolute;
     top: 1%;
     right: 1%;
-    font-size: 6rem;
+    font-size: 3rem;
     font-weight: normal;
     color: rgb(68, 65, 65);
     cursor: pointer;
     background: rgba(89, 89, 89, 0);
-    padding: 15px;
+    padding: 10px;
     line-height: .5;
     border: none;
     border-radius: 50%;
@@ -777,6 +778,10 @@ img#qr-code {
         max-width: 300px;
     }
 
+    .content-container h2 {
+        font-size: 1.5rem;
+    }
+
     .content-container p {
         font-size: 1.3rem;
         letter-spacing: 1px;
@@ -818,7 +823,7 @@ img#qr-code {
     }
 
     .modal .card {
-        width: 250px;
+        width: 220px;
     }
 
     .card p {
