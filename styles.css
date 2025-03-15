@@ -148,9 +148,9 @@ section.business-cards {
     background-size: contain;
     margin: 30px 0;
     /* max-height: 500px; */
-    /* height: 100%; */
+    height: 20%;
     width: 100%;
-    /* background-color: white; */
+    /* background-color: blue; */
     /* padding-top: 20px; */
 }
 
@@ -622,6 +622,10 @@ img#qr-code {
         width: 100%;
         padding: 0 10px;
     }
+    .city-bg-image {
+        max-width: 600px;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 800px) /* 600px wide or wider */{
@@ -749,7 +753,7 @@ img#qr-code {
 
 @media (max-width: 600px) {
     img.profile-picture {
-        width: 60px;
+        width: 100px;
         height: auto;
     }
 }
@@ -765,7 +769,7 @@ img#qr-code {
     }
 
     img.profile-picture {
-        width: 40px;
+        width: 80px;
         height: auto;
     }
 
