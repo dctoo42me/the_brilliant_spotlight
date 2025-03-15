@@ -823,7 +823,7 @@ img#qr-code {
     }
 
     .modal .card {
-        width: 220px;
+        width: 200px;
     }
 
     .card p {
@@ -844,6 +844,9 @@ img#qr-code {
         padding: 4px 8px;
     }
 
+    .site-button {
+        padding: 2px;
+    }
     footer {
         padding: 10px;
     }
