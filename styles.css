@@ -146,9 +146,9 @@ section.business-cards {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 30px 0;
+    margin: 60px 0;
     /* max-height: 500px; */
-    height: 20%;
+    height: 30%;
     width: 100%;
     /* background-color: blue; */
     /* padding-top: 20px; */
@@ -316,10 +316,15 @@ img.profile-picture {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 50px auto;
     display: block;
     /* background-color: #f3ef08; */
     background-color: #eeee19;
+}
+
+.city-bg-image a{
+    width: fit-content;
+    margin: 0 auto
 }
 
 .site-button {
@@ -624,6 +629,7 @@ img#qr-code {
     .city-bg-image {
         max-width: 600px;
         width: 100%;
+        margin: 30px 0;
     }
 }
 
