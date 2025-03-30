@@ -249,10 +249,10 @@ section.business-cards {
     height: 250px;
 }
 
-/* .modal-image-card-container {
+.modal-image-card-container {
     width: 100%;
     height: auto;
-} */
+}
 
 .modal .card {
     max-width: 400px;
