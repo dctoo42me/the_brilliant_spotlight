@@ -51,7 +51,8 @@ header {
     justify-content: space-between;
     width: 100%;
     /* height: 100%; */
-    background-color: #bfbfbf;
+    background-color: #cad185;
+    background-color: #89f2fd;
     overflow: hidden;
 }
 
@@ -178,8 +179,8 @@ section.business-cards {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
+    /* width: 60px;
+    height: 60px; */
     border-radius: 50%;
     line-height: 2;
     border: none;
@@ -188,7 +189,7 @@ section.business-cards {
     color: rgba(32, 32, 32, 0.6);
     /* color: white;   */
     font-size: 40px;
-    padding: 40px 40px;
+    padding: 10px 40px;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
@@ -198,8 +199,8 @@ section.business-cards {
 }
 
 .carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-    color: rgba(255, 255, 255, 0.343);
+    background: rgba(139, 139, 139, 0.8);
+    /* color: rgba(255, 255, 255, 0.343); */
 }
 
 /* Positioning */
@@ -217,8 +218,9 @@ section.business-cards {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    width: 100%;
+    /* width: 100%; */
     transition: transform 0.1s ease-in-out;
+    scrollbar-width: none;
 }
 
 .carousel::-webkit-scrollbar {
@@ -249,8 +251,8 @@ section.business-cards {
 }
 
 .image-card-container {
-    width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 400px;
 }
 
 .modal-image-card-container {
@@ -644,6 +646,12 @@ img#qr-code {
         width: 100%;
         padding: 0 10px;
     }
+
+    .image-card-container {
+        width: 300px;
+        height: 450px;
+    }
+
     .city-bg-image {
         max-width: 600px;
         width: 100%;
@@ -666,11 +674,6 @@ img#qr-code {
         width: 100%;
     }
 
-    .image-card-container {
-        width: 300px;
-        height: 200px;
-    }
-
     img.profile-picture {
         width: 100px;
         height: 100px;
@@ -679,6 +682,11 @@ img#qr-code {
     .card-content {
         max-height: 250px;
         height: 100%;
+    }
+    
+    .image-card-container {
+        width: 300px;
+        height: 450px;
     }
 
     .business-name {
@@ -748,11 +756,34 @@ img#qr-code {
 
 }
 
-@media screen and (max-width: 854px) and (max-height: 1281px){ /*below 854px width and below 1281 ht*/
+@media screen and (max-width: 854px) and (max-height: 1400px){ /*below 854px width and below 1281 ht*/
     .modal .card {
         max-width: 350px;
     }
+    .image-card-container {
+        width: 350px;
+        height: 450px;
+    }
+}
 
+@media screen and (max-width: 1200px) and (max-height: 1400px){ /*below 854px width and below 1281 ht*/
+    .modal .card {
+        max-width: 400px;
+    }
+    .image-card-container {
+        width: 400px;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (max-height: 601px){ /*below 854px width and below 601 ht*/
+    .modal .card {
+        max-width: 400px;
+    }
+    .image-card-container {
+        width: 250px;
+        height: 300px;
+    }
 }
 
 @media (min-height: 720px) and (max-height: 800px) {
@@ -779,6 +810,11 @@ img#qr-code {
         width: 100px;
         height: auto;
     }
+
+    .image-card-container {
+        width: 250px;
+        height: 350px;
+    }
 }
 
 @media  (max-width: 420px) /*below 420px*/ {
@@ -798,6 +834,11 @@ img#qr-code {
 
     .modal .card {
         max-width: 320px;
+    }
+
+    .image-card-container {
+        width: 250px;
+        height: 350px;
     }
 
     .content-container h2 {
@@ -841,6 +882,11 @@ img#qr-code {
         max-height: 200px;
         height: 100%;
     }
+    
+    .image-card-container {
+        width: 200px;
+        height: 300px;
+    }
 
     .content-container p {
         font-size: 1.2rem;
@@ -880,4 +926,7 @@ img#qr-code {
     footer {
         padding: 10px;
     }
+
 }
+
+
