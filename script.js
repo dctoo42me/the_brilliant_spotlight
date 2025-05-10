@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         carousel.appendChild(clone);
-        carousel.style.transition = "transform 0.5s ease-in-out";
+        carousel.style.transition = "transform 0.4s ease-in-out";
         carousel.style.transform = `translateX(-${cardWidth}px)`;
 
         setTimeout(() => {
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             carousel.style.transition = "none";
             carousel.style.transform = "translateX(0)";
             isAnimating = false;
-        }, 500);
+        }, 300);
     }
 
     function shiftRight() {
@@ -130,13 +130,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                carousel.style.transition = "transform 0.5s ease-in-out";
+                carousel.style.transition = "transform 0.4s ease-in-out";
                 carousel.style.transform = "translateX(0)";
 
                 setTimeout(() => {
                     lastCard.remove();
                     isAnimating = false;
-                }, 500);
+                }, 50);
             });
         });
     }
