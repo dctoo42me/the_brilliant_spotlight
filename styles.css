@@ -187,8 +187,8 @@ section.business-cards {
     background: rgba(255, 255, 255, 0.6);
     color: rgba(32, 32, 32, 0.6);
     /* color: white;   */
-    font-size: 35px;
-    padding: 10px 10px;
+    font-size: 40px;
+    padding: 40px 40px;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
