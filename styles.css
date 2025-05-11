@@ -320,7 +320,7 @@ section.business-cards {
 
 }
 
-img.profile-picture {
+img.spotlight-logo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -328,6 +328,20 @@ img.profile-picture {
     display: block;
     /* background-color: #f3ef08; */
     background-color: #eeee19;
+    animation: spotlightPulse 4s ease-in-out infinite;
+}
+
+/* Animation Keyframes */
+@keyframes spotlightPulse {
+    0% {
+        filter: brightness(60%); /* Slightly dimmed */
+    }
+    50% {
+        filter: brightness(120%); /* Slightly brighter */
+    }
+    100% {
+        filter: brightness(60%); /* Back to dimmed */
+    }
 }
 
 .city-bg-image a{
