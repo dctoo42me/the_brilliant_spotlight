@@ -668,6 +668,11 @@ img#qr-code {
         height: 450px;
     }
 
+    img.spotlight-logo {
+        width: 90px;
+        height: auto;
+    }
+
     .city-bg-image {
         max-width: 600px;
         width: 100%;
@@ -844,8 +849,8 @@ img#qr-code {
         height: 100%;
     }
 
-    img.profile-picture {
-        width: 80px;
+    img.spotlight-logo {
+        width: 90px;
         height: auto;
     }
 
