@@ -242,8 +242,8 @@ section.business-cards {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    /* background-color: #f8f5f5; */
     background-color: #fcfeff;
+    background-color: #29211f;
 }
 
 .card img {
@@ -290,7 +290,7 @@ section.business-cards {
     border-radius: 2px;
     max-height: 300px;
     height: 100%;
-    background-color: #3a3939;
+    background-color: #2d2516;
     color: #f2f0f0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -298,12 +298,12 @@ section.business-cards {
 
 .business-name h2 {
     font-family: "Poppins", serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    font-style: italic;
+    font-weight: 500;
+    font-size: 1.2rem;
+    /* font-style: italic; */
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #1f1e1e;
+    color: white;
 }
 
 .business-name {
