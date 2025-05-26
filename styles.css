@@ -24,8 +24,7 @@ body {
 
 header {
     width: 100%;
-    background-color: #000;
-    background-color: #8f8f64;
+    background-color: #22333b;
     padding: 20px;
     text-align: center;
     z-index: 0;
@@ -53,9 +52,7 @@ header {
     justify-content: space-between;
     width: 100%;
     /* height: 100%; */
-    background-color: #cad185;
-    background-color: #a8ccf0;
-    background-color: #323232;
+    background-color: #eae0d5;
     overflow: hidden;
 }
 
@@ -96,7 +93,7 @@ section {
 }
 
 section.home-hero {
-    background-color: #94b5d5;
+    background-color: #eae0d5;
 }
 
 section.business-cards {
@@ -242,8 +239,7 @@ section.business-cards {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #fcfeff;
-    background-color: #29211f;
+    background-color: #ececec;
 }
 
 .card img {
@@ -303,7 +299,7 @@ section.business-cards {
     /* font-style: italic; */
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: white;
+    color: #1a5276;
 }
 
 .business-name {
@@ -314,14 +310,15 @@ section.business-cards {
     width: 100%;
     text-align: center;
     /* max-height: 100px; */
-    height: 80px;
-    padding: 10px 0;
+    height: 3.25rem;
+    margin: 10px 0;
     /* background-color: #4caf50; */
     /* background-color: rgb(58, 58, 58); */
 
 }
 
 img.spotlight-logo {
+    display: none;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -335,13 +332,13 @@ img.spotlight-logo {
 /* Animation Keyframes */
 @keyframes spotlightPulse {
     0% {
-        filter: brightness(60%); /* Slightly dimmed */
+        filter: brightness(80%); /* Slightly dimmed */
     }
     50% {
         filter: brightness(120%); /* Slightly brighter */
     }
     100% {
-        filter: brightness(60%); /* Back to dimmed */
+        filter: brightness(80%); /* Back to dimmed */
     }
 }
 
@@ -359,20 +356,20 @@ img.spotlight-logo {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #0087F9;
-    border: 2px solid #0087F9;
+    background-color: #50729b;
+    border: 2px solid #50729b;
     color: white;
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
         background-color: white;
-        border: 2px solid rgb(80, 86, 7);
-        color: rgb(80, 86, 7);
+        border: 2px solid #50729b;
+        color: #50729b;
     }
     &&:active{
-        background-color: #b5b558;
-        border: 2px solid #b5b558;
+        background-color: #50729b;
+        border: 2px solid #50729b;
         color:white;
     }
 }
@@ -381,6 +378,16 @@ img.spotlight-logo {
     background-color: #28a745; /* Green for "Save" action */
     border: 2px solid #28a745;
     margin-top: 10px; /* Spacing between buttons */
+    &&:hover{
+        background-color: white;
+        border: 2px solid #28a745;
+        color: #28a745;
+    }
+    &&:active{
+        background-color: #28a745;
+        border: 2px solid #28a745;
+        color:white;
+    }
 }
 
 .save-note {
@@ -537,14 +544,14 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color :#3c576e;
-    border-color: #3c576e;
+    background-color :#939393;
+    border-color: #939393;
     color: white;
     &&:hover {
         color: white;
-        border-color: #282727;
+        border-color: #939393;
         background-color: white;
-        color: #282727;
+        color: #939393;
         cursor: pointer;
     }
     &&:active {
@@ -624,7 +631,7 @@ img#qr-code {
     font-weight: 600;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #1877f2;
+    color: #50729b;
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 }
@@ -646,7 +653,7 @@ img#qr-code {
 
 .rawpixel {
     font-size: x-small;
-    color: #94b5d5;
+    color: #eae0d5;
 }
 
 /***********************Media Queries*************************/
@@ -694,10 +701,10 @@ img#qr-code {
     .main-title h1 {
         font-size: 1.8rem;
     }
-    
+/*     
     .modal-content {
         margin: 0 10px;
-    }
+    } */
 
     .modal .card {
         max-width: 250px;
@@ -717,10 +724,6 @@ img#qr-code {
     .image-card-container {
         width: 300px;
         height: 450px;
-    }
-
-    .business-name {
-        height: 75px;
     }
 
     .business-name h2 {
