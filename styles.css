@@ -138,8 +138,9 @@ section.business-cards {
     letter-spacing: 1px;
     margin-top: 15px;
     /* background-color: white; */
-    /* text-align: justify; */
+    text-align: left;
     padding: 10px;
+    padding-left: 5%;
     color: #292929;
 }
 
