@@ -359,7 +359,7 @@ img.spotlight-logo {
     text-align: center;
     background-color: #50729b;
     border: 2px solid #50729b;
-    color: white;
+    color: rgb(255, 255, 255);
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
