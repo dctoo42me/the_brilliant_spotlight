@@ -23,57 +23,99 @@ body {
 }
 
 header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    background-color: #22333b;
-    padding: 20px;
+    background-color: #202938;
     text-align: center;
     z-index: 0;
 }
 
-.main-title h1 {
-    font-family: "Poppins", serif;
-    font-family: "Playfair Display", serif;
-    /* font-family:  serif; */
-    text-transform: uppercase;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    color: white;
-    font-size: 2.5rem;
+header.pad-small, footer.pad-small {
+    padding: .5rem;
 }
 
-.main-title a {
+header h1 {
+    font-family: "Poppins", sans-serif;
+    /* font-family: sans-serif; */
+    text-transform: uppercase;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    line-height: 1;
+    color: white;
+    font-size: 3.4rem;
+    /* margin-top: 1.5rem; */
+}
+
+h2.small {
+    margin-top: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fde420;
+}
+
+header a {
     text-decoration: none;
 }
 
+.hero-section-with-glow {
+    /* This is the layered background that creates the effect */
+    background: 
+      /* Layer 1: The Glow (top layer) */
+    radial-gradient(
+        ellipse at center 50%, 
+        rgba(250, 204, 21, 0.3) 0%, 
+        transparent 60%
+    ),
+    /* Layer 2: The Solid Background Color (bottom layer) */
+    #1F2937;
+
+    /* Good practice to prevent the gradient from spilling outside the container */
+    overflow: hidden; 
+}
+
+.pad-basic{
+    padding: 10% 1%;
+}
+
+.pad-hero{
+    padding: 10% 1%;
+}
+
+.pad-header {
+    padding: 5% 0;
+}
+
+.pad-main-title {
+    margin-top: 2rem;
+}
+
+.pad-contact{
+    padding: 2% 0;
+}
+
+.pad-btm-less {
+    padding-bottom: 6%;
+}
+
 .main-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    /* height: 100%; */
-    background-color: #eae0d5;
-    overflow: hidden;
+}
+
+.main-container.contact-bg {
+    background-color: #838fa3;
 }
 
 .main-container.cards-bg {
     position: relative;
-    /* background-color: #acedff; */
-}
-
-
-.background-image {
-    background-image: url("images/spotlightLogoBlack.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 70vh;
-    position: absolute;
-    width: 100%;
-    height: 103%;
-    /* top: 0;
-    left: 0; */
-    z-index: 0;
-    opacity: .1;
+    background-color: #1b1f21;
 }
 
 img.cards-bg  {
@@ -84,16 +126,9 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
-    height: 100%;
-    overflow: auto;
-    /* padding: 5px 0; */
+    /* overflow: auto; */
     scrollbar-width: none;
-    /* background-color: rgb(99, 167, 255); */
-}
-
-section.home-hero {
-    background-color: #eae0d5;
+    background-color: rgb(99, 167, 255);
 }
 
 section.business-cards {
@@ -109,39 +144,47 @@ section.business-cards {
 
 /* index.html */
 .content-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
+    align-items: center; */
+    text-align: center;
     width: 80%;
-    /* height: 100%; */
-    margin: 20px 0;
-    /* overflow-y: scroll; */
     scrollbar-width: none;
     /* background-color: rgb(13, 255, 13); */
 }
 
-.content-container h2 {
-    margin-top: 20px;
-    font-family: "Poppins", serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 2rem;
-    text-align: center;
-    color: #1f1e1e;
+.cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f9fafc;
+    background-color: #eff1f7;
+    /* height: 100%; */
+    /* overflow: auto; */
 }
 
-.content-container p {
+.cta h2 {
+    color: #02679b;
+    font-size: 2rem;
+}
+
+.content-container p, .cta p  {
     font-family: "Poppins", serif;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     letter-spacing: 1px;
-    margin-top: 15px;
-    /* background-color: white; */
     text-align: left;
-    padding: 10px;
+    /* padding-left: 5%; */
+    color: #1a1919;
+}
+
+.cta p {
+    padding-top: 1rem;
     padding-left: 5%;
-    color: #292929;
+}
+
+.cta .site-button {
+    width: fit-content;
 }
 
 .city-bg-image {
@@ -152,12 +195,9 @@ section.business-cards {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 60px 0;
-    /* max-height: 500px; */
-    height: 30%;
+    height: 300px;
     width: 100%;
     /* background-color: blue; */
-    /* padding-top: 20px; */
 }
 
 /* index-cards.html */
@@ -213,6 +253,10 @@ section.business-cards {
     right: 10px;
 }
 
+.open-up {
+    height: 100%;
+}
+
 
 .carousel {
     padding-left: 5px;
@@ -240,7 +284,7 @@ section.business-cards {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #ececec;
+    background-color: #4c4c4c;
 }
 
 .card img {
@@ -300,7 +344,7 @@ section.business-cards {
     /* font-style: italic; */
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #1a5276;
+    color: white;
 }
 
 .business-name {
@@ -323,11 +367,11 @@ img.spotlight-logo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 50px auto;
+    margin: 75% auto;
     display: block;
-    /* background-color: #f3ef08; */
-    background-color: #eeee19;
-    animation: spotlightPulse 4s ease-in-out infinite;
+    background-color: #e2ca14;
+    /* background-color: #f8e10d; */
+    /* animation: spotlightPulse 4s ease-in-out infinite; */
 }
 
 /* Animation Keyframes */
@@ -348,6 +392,42 @@ img.spotlight-logo {
     margin: 0 auto
 }
 
+.custom-card-container {
+    margin: 60px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.custom-card {
+    /* Other styles like background, padding, border-radius */
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    padding: 2rem; /* p-8 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; /* transition-shadow duration-300 */
+}
+
+.custom-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+}
+
+.custom-card h3 {
+    color: #0a80ba;
+    font-size: 1.5rem;
+}
+
+.custom-card p {
+    font-size: 1.1rem;
+    letter-spacing: .5px;
+    line-height: 1.4;
+    color: #424242;
+}
+
 .site-button {
     text-decoration: none;
     padding: 5px 15px;
@@ -357,20 +437,20 @@ img.spotlight-logo {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #50729b;
-    border: 2px solid #50729b;
+    background-color: #0072fe;
+    border: 2px solid #0072fe;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
         background-color: white;
-        border: 2px solid #50729b;
+        border: 2px solid #0072fe;
         color: #50729b;
     }
     &&:active{
-        background-color: #50729b;
-        border: 2px solid #50729b;
+        background-color: #0072fe;
+        border: 2px solid #0072fe;
         color:white;
     }
 }
@@ -503,10 +583,16 @@ img.spotlight-logo {
 
 footer {
     width: 100%;
-    background-color: #191919;
-    color: #565656;
-    padding: 20px;
+    background-color: #202938;
+    color: #cedaf3;
+    /* padding: 30px; */
+    font-size: 1rem;
     text-align: center;
+}
+
+.smaller {
+    margin-top: .5rem;
+    font-size: .99rem;
 }
 
 .progress {
@@ -569,7 +655,7 @@ img#qr-code {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 100%; */
+    height: 100%;
     /* background-color: red; */
     overflow: hidden;
 }
@@ -580,8 +666,8 @@ img#qr-code {
     max-width: 800px; /* Limit width for readability */
     width: 100%;
     height: 100%;
-    margin-top: 40px;
-    padding: 40px 0;
+    /* margin-top: 40px; */
+    padding: 20px 0;
     background-color: #f5f5f5; /* Light background for contrast */
     border-radius: 10px; /* Rounded corners for a modern look */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -622,7 +708,7 @@ img#qr-code {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 1rem 0;
+    padding: 2rem 0 0;
 }
 
 .social-link {
@@ -653,20 +739,60 @@ img#qr-code {
 }
 
 .rawpixel {
+    display: none;
     font-size: x-small;
-    color: #eae0d5;
+    color: #838fa3;
 }
 
 /***********************Media Queries*************************/
 
+@media (max-width: 900px) {
+    .custom-card-container {
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .city-bg-image {
+        height: 200px;
+    }
+
+    img.spotlight-logo {
+        width: 120px;
+        height: auto;
+        margin: 50% auto;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    .cta h2 {
+        font-size: 1.75rem;
+    }
+
+    .pad-main-title {
+        margin-top: 1.5rem;
+    }
+
+    .pad-main-title h2 {
+        font-size: 1.4rem;
+    }
+
+}
 
 @media (min-width: 50px) and (max-width: 600px) {
     .site-button {
         font-size: 1rem;
     }
 
-    .main-title h1 {
-        font-size: 1.8rem;
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .custom-card h3 {
+        font-size: 1.75rem;
     }
 
     .content-container {
@@ -677,7 +803,7 @@ img#qr-code {
     .contact-section {
         border-radius: 0;
         margin: 0;
-        padding: 40px 0 0;
+        padding: 15px 0 0;
     }
 
     .image-card-container {
@@ -686,26 +812,39 @@ img#qr-code {
     }
 
     img.spotlight-logo {
-        width: 90px;
+        width: 80px;
         height: auto;
+    }
+
+    .cta h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta h3 {
+        font-size: 1.3rem;
+    }
+
+    .cta p {
+        font-size: 1rem;
     }
 
     .city-bg-image {
         max-width: 600px;
         width: 100%;
-        margin: 30px 0;
+        margin: 0;
+        height: 130px;
+    }
+
+    footer.small {
+        font-size: 1.2rem;
     }
 }
 
 @media screen and (min-width: 600px) and (max-width: 800px) /* 600px wide or wider */{
 
-    .main-title h1 {
-        font-size: 1.8rem;
+    header h1 {
+        font-size: 2.6rem;
     }
-/*     
-    .modal-content {
-        margin: 0 10px;
-    } */
 
     .modal .card {
         max-width: 250px;
@@ -737,10 +876,6 @@ img#qr-code {
         /* background-color: green; */
     }
 
-    .content-container h2 {
-        font-size: 1.7rem;
-    }
-
     .content-container p {
         font-size: 1.4rem;
         letter-spacing: .5px;
@@ -758,7 +893,7 @@ img#qr-code {
     .contact-section {
         border-radius: 0;
         margin: 0;
-        padding: 40px 0 0;
+        padding: 20px 0 0;
     }
 
     .contact-section h2 {
@@ -850,21 +985,22 @@ img#qr-code {
         width: 250px;
         height: 350px;
     }
+
+    
+    .pad-main-title h2 {
+        font-size: 1rem;
+    }
 }
 
 @media  (max-width: 431px) /*below 420px*/ {
 
-    .main-title h1{
-        font-size: 1.5rem;
+    header h1{
+        font-size: 1.8rem;
         font-weight: normal;
     }
 
-    .main-container {
-        height: 100%;
-    }
-
     img.spotlight-logo {
-        width: 90px;
+        width: 80px;
         height: auto;
     }
 
@@ -877,26 +1013,12 @@ img#qr-code {
         height: 350px;
     }
 
-    .content-container h2 {
-        font-size: 1.5rem;
-    }
-
-    .content-container p {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-        text-align: left;
-        line-height: 1.4;
-    }
-
-    .content-container h2 {
-        line-height: 1.2;
-    }
     .create .site-button {
         padding: 4px 10px;
     }
     
     .social-link.facebook {
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     .carousel-btn {
@@ -906,13 +1028,14 @@ img#qr-code {
 }
 
 @media screen and (max-width: 389px) {
-    
-    header {
-        padding: 10px;
+
+    header h1 {
+        font-size: 1.5rem;
     }
 
-    .main-title h1 {
-        font-size: 1.4rem;
+    img.spotlight-logo {
+        width: 70px;
+        height: auto;
     }
     
     .carousel {
@@ -931,10 +1054,6 @@ img#qr-code {
 
     .content-container p {
         font-size: 1.2rem;
-    }
-
-    .content-container h2 {
-        font-size: 1.3rem;
     }
 
     .modal .card {
@@ -961,11 +1080,6 @@ img#qr-code {
 
     .site-button {
         padding: 2px;
-    }
-
-
-    footer {
-        padding: 10px;
     }
 
 }
