@@ -840,7 +840,7 @@ img#qr-code {
     }
 
     .pad-hero {
-        padding: 16% 1%;
+        padding: 30% 1%;
     }
 
     h2.med {
@@ -862,6 +862,15 @@ img#qr-code {
         width: 100%;
         margin: 0;
         height: 130px;
+    }
+
+    .social-link {
+        font-size: .8rem;
+        padding: 0;
+    }
+
+    .social-link.facebook {
+
     }
 
     footer.small {
