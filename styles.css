@@ -80,7 +80,7 @@ header a {
 }
 
 .pad-basic{
-    padding: 10% 1%;
+    padding: 12% 1%;
 }
 
 .pad-hero{
@@ -99,8 +99,9 @@ header a {
     padding: 2% 0;
 }
 
-.pad-btm-less {
-    padding-bottom: 6%;
+.pad-sample-proj {
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 .no-extra-pad p {
@@ -591,8 +592,7 @@ img.spotlight-logo {
 footer {
     width: 100%;
     background-color: #202938;
-    color: #cedaf3;
-    /* padding: 30px; */
+    color: #696b70;
     font-size: 1rem;
     text-align: center;
 }
@@ -771,6 +771,11 @@ img#qr-code {
         margin: 50% auto;
     }
 
+    .hero-section-with-glow {
+        background: radial-gradient(at center 50%, rgba(250, 204, 21, 0.3) 10%, transparent 60%), rgb(31, 41, 55);
+        overflow: hidden;
+    }
+
     header h1 {
         font-size: 3rem;
     }
@@ -783,7 +788,12 @@ img#qr-code {
         margin-top: 1.5rem;
     }
 
-    .slogan h2 {
+    .pad-hero {
+        padding: 15% 1%;
+    }
+
+    h2.slogan {
+        margin-top: 0rem;
         font-size: 1.4rem;
     }
 
@@ -793,6 +803,10 @@ img#qr-code {
 
     header h1 {
         font-size: 2rem;
+    }
+
+    .pad-main-title {
+        margin-top: .8rem;
     }
 
     .custom-card h3 {
@@ -825,9 +839,18 @@ img#qr-code {
         height: auto;
     }
 
+    .pad-hero {
+        padding: 16% 1%;
+    }
+
     h2.med {
         font-size: 1.5rem;
         letter-spacing: 0;
+    }
+
+    h2.slogan {
+        font-size: 1rem;
+        line-height: 1.25;
     }
 
     .cta h3 {
@@ -849,7 +872,7 @@ img#qr-code {
 @media screen and (min-width: 600px) and (max-width: 800px) /* 600px wide or wider */{
 
     header h1 {
-        font-size: 2.6rem;
+        font-size: 2.5rem;
     }
 
     .modal .card {
