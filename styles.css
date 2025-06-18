@@ -110,7 +110,7 @@ header a {
 }
 
 .main-container.contact-bg {
-    background-color: #838fa3;
+    background-color: rgb(99, 167, 255);
 }
 
 .main-container.cards-bg {
@@ -292,7 +292,7 @@ p.cta-desc {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #fafafa;
+    background-color: #282f3b;
 }
 
 .card img {
@@ -352,7 +352,7 @@ p.cta-desc {
     /* font-style: italic; */
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #434343;
+    color: #ffffff;
 }
 
 .business-name {
@@ -440,12 +440,28 @@ img.spotlight-logo {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #FF5349;
-    border: 2px solid #FF5349;
+    background-color: #0055ff;
+    border: 2px solid #0055ff;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
+    &&:hover{
+        background-color: white;
+        border: 2px solid #0055ff;
+        color: #0055ff;
+    }
+    &&:active{
+        background-color: #0055ff;
+        border: 2px solid #0055ff;
+        color:white;
+    }
+}
+
+.site-button.campaign-btn {
+    background-color: #FF5349; /* Green for "Save" action */
+    border: 2px solid #FF5349;
+    margin-top: 10px; /* Spacing between buttons */
     &&:hover{
         background-color: white;
         border: 2px solid #FF5349;
@@ -633,19 +649,19 @@ img#qr-code {
 
 #share-button {
     margin-top: 10px;
-    background-color :#939393;
-    border-color: #939393;
+    background-color :#838383;
+    border-color: #838383;
     color: white;
     &&:hover {
         color: white;
-        border-color: #939393;
+        border-color: #838383;
         background-color: white;
-        color: #939393;
+        color: #838383;
         cursor: pointer;
     }
     &&:active {
-        border-color: #4D9DE0;
-        background-color:#4D9DE0;
+        border-color: #838383;
+        background-color:#838383;
         color: white;
         cursor: pointer;
     }
