@@ -461,6 +461,7 @@ img.spotlight-logo {
 .site-button.campaign-btn {
     background-color: #FF5349; /* Green for "Save" action */
     border: 2px solid #FF5349;
+    font-size: 1.5rem;
     margin-top: 10px; /* Spacing between buttons */
     &&:hover{
         background-color: white;
@@ -498,7 +499,7 @@ img.spotlight-logo {
 }
 
 .template-container {
-    max-width: 500px;
+    max-width: 800px;
     width: 100%;
     background-color: white;
 }
@@ -885,8 +886,8 @@ img#qr-code {
         padding: 0;
     }
 
-    .social-link.facebook {
-
+    .site-button.campaign-btn {
+        font-size: 1.3rem;
     }
 
     footer.small {
