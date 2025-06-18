@@ -64,20 +64,14 @@ header a {
 }
 
 .hero-section-with-glow {
-    /* This is the layered background that creates the effect */
-    background: 
-      /* Layer 1: The Glow (top layer) */
-    radial-gradient(
-        ellipse at center 50%, 
-        rgba(250, 204, 21, 0.3) 0%, 
-        transparent 60%
-    ),
-    /* Layer 2: The Solid Background Color (bottom layer) */
-    #1F2937;
-
-    /* Good practice to prevent the gradient from spilling outside the container */
-    overflow: hidden; 
+    background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
+    overflow: hidden;
 }
+/* 
+.section-with-glow {
+    background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
+    overflow: hidden;
+} */
 
 .pad-basic{
     padding: 12% 1%;
@@ -123,6 +117,7 @@ header a {
     position: relative;
     /* background-color: #1b1f21; */
     background-color: #80929b;
+    background-color: #3baaee;
 }
 
 img.cards-bg  {
@@ -196,7 +191,7 @@ p.cta-desc {
 }
 
 .custom-card .cta-small {
-    /* color: #242224; */
+    color: #f1f0f1;
     font-size: 1.2rem;
 }
 
@@ -297,7 +292,7 @@ p.cta-desc {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #f1e8e8;
+    background-color: #fafafa;
 }
 
 .card img {
@@ -416,7 +411,7 @@ img.spotlight-logo {
     /* Other styles like background, padding, border-radius */
     text-align: center;
     width: 100%;
-    background-color: white;
+    background-color: #077bc3;
     padding: 1rem; 
     border-radius: 0.75rem; /* rounded-xl */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
@@ -430,7 +425,7 @@ img.spotlight-logo {
 }
 
 .custom-card h3 {
-    color: #0a80ba;
+    color: #ffffff;
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: .8px;
@@ -445,20 +440,20 @@ img.spotlight-logo {
     font-size: 1.25rem;
     font-weight: 200;
     text-align: center;
-    background-color: #0072fe;
-    border: 2px solid #0072fe;
+    background-color: #FF5349;
+    border: 2px solid #FF5349;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     transition: color 500ms;
     transition: background-color 500ms;
     &&:hover{
         background-color: white;
-        border: 2px solid #0072fe;
-        color: #50729b;
+        border: 2px solid #FF5349;
+        color: #FF5349;
     }
     &&:active{
-        background-color: #0072fe;
-        border: 2px solid #0072fe;
+        background-color: #FF5349;
+        border: 2px solid #FF5349;
         color:white;
     }
 }
@@ -725,7 +720,7 @@ img#qr-code {
     font-weight: 600;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #50729b;
+    color: #d5d8db;
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 }
@@ -742,7 +737,7 @@ img#qr-code {
 }
 
 .social-link.facebook:hover {
-    color: #ffcc00; /* Your brand color */
+    color: #eed058; /* Your brand color */
 }
 
 .rawpixel {
@@ -772,9 +767,14 @@ img#qr-code {
     }
 
     .hero-section-with-glow {
-        background: radial-gradient(at center 50%, rgba(250, 204, 21, 0.3) 10%, transparent 60%), rgb(31, 41, 55);
+        background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
         overflow: hidden;
     }
+
+    /* .section-with-glow {
+        background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
+        overflow: hidden;
+    } */
 
     header h1 {
         font-size: 3rem;
