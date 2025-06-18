@@ -64,7 +64,7 @@ header a {
 }
 
 .hero-section-with-glow {
-    background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
+    background: radial-gradient(at center 50%, rgb(232 230 222 / 27%) 40% 40%, #00000000 60%), #077bc3;
     overflow: hidden;
 }
 /* 
@@ -783,7 +783,7 @@ img#qr-code {
     }
 
     .hero-section-with-glow {
-        background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
+        background: radial-gradient(at center 50%, rgb(232 230 222 / 27%) 40% 40%, #00000000 60%), #077bc3;
         overflow: hidden;
     }
 
