@@ -64,14 +64,9 @@ header a {
 }
 
 .hero-section-with-glow {
-    background: radial-gradient(at center 50%, rgb(232 230 222 / 27%) 40% 40%, #071bd836 60%), #0767c7;
+    background: radial-gradient(at center 50%, rgb(255 255 255 / 27%) 40% 40%, #6874e18f 60%), #007fff;
     overflow: hidden;
 }
-/* 
-.section-with-glow {
-    background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
-    overflow: hidden;
-} */
 
 .pad-basic{
     padding: 12% 1%;
@@ -411,7 +406,7 @@ img.spotlight-logo {
     /* Other styles like background, padding, border-radius */
     text-align: center;
     width: 100%;
-    background-color: #0767c7;
+    background-color: #3a79ee;
     padding: 1rem; 
     border-radius: 0.75rem; /* rounded-xl */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
@@ -784,14 +779,9 @@ img#qr-code {
     }
 
     .hero-section-with-glow {
-        background: radial-gradient(at center 50%, rgb(232 230 222 / 27%) 40% 40%, #071bd836 60%), #0767c7;
+        background: radial-gradient(at center 50%, rgb(255 255 255 / 27%) 40% 40%, #6874e18f 60%), #007fff;
         overflow: hidden;
     }
-
-    /* .section-with-glow {
-        background: radial-gradient(at center 50%, rgb(205 170 29 / 27%) 40% 40%, #00000000 60%), #077bc3;
-        overflow: hidden;
-    } */
 
     header h1 {
         font-size: 3rem;
