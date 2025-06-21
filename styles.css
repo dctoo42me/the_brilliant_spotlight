@@ -27,7 +27,7 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #202938;
+    background-color: #3a79ee;
     text-align: center;
     z-index: 0;
 }
@@ -105,14 +105,13 @@ header a {
 }
 
 .main-container.contact-bg {
-    background-color: rgb(99, 167, 255);
+    background-color: #bed5ff;
 }
 
 .main-container.cards-bg {
     position: relative;
     /* background-color: #1b1f21; */
-    background-color: #80929b;
-    background-color: #3baaee;
+    background-color: #bed5ff;
 }
 
 img.cards-bg  {
@@ -161,9 +160,11 @@ section.business-cards {
 }
 
 h2.med {
+    font-family: "Poppins", sans-serif;
     color: #3a79ee;
     letter-spacing: 1px;
     font-size: 2rem;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
@@ -284,10 +285,11 @@ p.cta-desc {
     max-width: 500px;
     width: 100%;
     height: 100%;
+    border: 2px solid #3a79ee;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
-    0 1px 3px rgba(0, 0, 0, 0.433);
-    background-color: #282f3b;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
+    0 1px 3px rgba(0, 0, 0, 0.433); */
+    background-color: #fbfcff;
 }
 
 .card img {
@@ -300,11 +302,16 @@ p.cta-desc {
 .image-card-container {
     width: 300px;
     height: 400px;
+    border-bottom: 2px solid #3a79ee;
 }
 
 .modal-image-card-container {
     width: 100%;
     height: auto;
+}
+
+.modal-content .card {
+    border: none;
 }
 
 .modal .card {
@@ -347,7 +354,7 @@ p.cta-desc {
     /* font-style: italic; */
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #ffffff;
+    color: #3a79ee;
 }
 
 .business-name {
@@ -419,7 +426,7 @@ img.spotlight-logo {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
 }
 
-.custom-card h3 {
+.custom-card h3 {   
     color: #ffffff;
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -691,17 +698,6 @@ img#qr-code {
     overflow-y: hidden;
 }
 
-/* Styling for the heading */
-.contact-section h2 {
-    font-family: "Poppins", serif; /* Match your brand font */
-    font-weight: 500; /* Bold weight for prominence */
-    font-size: 2.5rem; /* Large size for visibility */
-    color: #333; /* Neutral color for readability */
-    margin-bottom: 1.5rem; /* Space below the heading */
-}
-
-
-
 .contact-section iframe {
     flex: 1;
     height: 100%;
@@ -732,7 +728,7 @@ img#qr-code {
     font-weight: 600;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #d5d8db;
+    color: #ffffff;
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 }
@@ -789,6 +785,7 @@ img#qr-code {
 
     h2.med {
         font-size: 1.75rem;
+        font-weight: 500;
     }
 
     .pad-main-title {
