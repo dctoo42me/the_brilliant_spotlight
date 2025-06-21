@@ -290,6 +290,7 @@ p.cta-desc {
     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.308), 
     0 1px 3px rgba(0, 0, 0, 0.433); */
     background-color: #fbfcff;
+    /* overflow: hidden; ruins the entire card*/
 }
 
 .card img {
@@ -303,11 +304,19 @@ p.cta-desc {
     width: 300px;
     height: 400px;
     border-bottom: 2px solid #3a79ee;
+    /* border: 2px solid #3a79ee;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px; */
+    background-color: none;
+    /* overflow: hidden; */
 }
 
 .modal-image-card-container {
     width: 100%;
     height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
 }
 
 .modal-content .card {
@@ -849,6 +858,7 @@ img#qr-code {
 
     h2.med {
         font-size: 1.5rem;
+        line-height: 1.2;
         letter-spacing: 0;
     }
 
