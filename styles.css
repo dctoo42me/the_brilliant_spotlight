@@ -539,6 +539,8 @@ img.spotlight-logo {
 
 .modal.active {
     display: flex; /* Display when active */
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {    
