@@ -1042,7 +1042,7 @@ img#qr-code {
     }
 }
 
-@media  (max-width: 431px) /*below 420px*/ {
+@media  (max-width: 431px) /*below 431px*/ {
 
     header h1{
         font-size: 1.8rem;
@@ -1054,9 +1054,16 @@ img#qr-code {
         height: auto;
     }
 
+    .card {
+        max-height: 80%;
+    }
+
     .modal-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         max-width: 90vw;
-        height: auto;
     }
 
     .image-card-container {
