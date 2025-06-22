@@ -1060,7 +1060,7 @@ img#qr-code {
         justify-content: center;
         align-items: center;
         max-width: 90vw;
-        max-height: 90%;
+        max-height: 80%;
     }
 
     .image-card-container {
