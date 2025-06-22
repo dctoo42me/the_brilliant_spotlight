@@ -1058,7 +1058,7 @@ img#qr-code {
 
     .modal-content {
         max-width: 90vw;
-        max-height: 90vh;
+        max-height: 80vh;
     }
 
     .image-card-container {
@@ -1116,7 +1116,7 @@ img#qr-code {
 
     .modal-content {
         max-width: 90vw;
-        max-height: 90vh;
+        max-height: 80vh;
     }
 
     .card p {
