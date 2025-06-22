@@ -1060,12 +1060,22 @@ img#qr-code {
         justify-content: center;
         align-items: center;
         max-width: 90vw;
-        max-height: 80vh;
+        margin: 20px 0;
+        background-color: purple;
     }
 
+    .modal-image-card-container {
+        height: 100%;
+        width: 100%;
+    }
+    
     .image-card-container {
         width: 250px;
         height: 350px;
+    }
+    
+    .card {
+        height: auto;
     }
 
     .create .site-button {
