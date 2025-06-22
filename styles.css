@@ -1054,16 +1054,13 @@ img#qr-code {
         height: auto;
     }
 
-    .card {
-        height: 80%;
-    }
-
     .modal-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 90vw;
+        max-height: 90%;
     }
 
     .image-card-container {
