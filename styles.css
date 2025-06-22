@@ -1053,7 +1053,12 @@ img#qr-code {
     }
 
     .modal .card {
-        max-width: 320px;
+        /* max-width: 320px; */
+    }
+
+    .modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
     }
 
     .image-card-container {
@@ -1106,7 +1111,12 @@ img#qr-code {
     }
 
     .modal .card {
-        width: 270px;
+        /* width: 270px; */
+    }
+
+    .modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
     }
 
     .card p {
