@@ -889,11 +889,11 @@ img#qr-code {
 
     .modal-image-card-container {
         width: 100%;
-        height: 350px;
+        height: 400px;
     }
 
     .modal.active {
-        padding: 0 5%;
+        padding: 0 10%;
     }
     
     
