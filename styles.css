@@ -1122,6 +1122,10 @@ img#qr-code {
     .modal.active {
         padding: 0 7%;
     }
+
+    .modal .card {
+        max-width: 300px;
+    }
         
     .image-card-container {
         width: 200px;
