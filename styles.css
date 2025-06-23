@@ -1059,9 +1059,18 @@ img#qr-code {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 90vw;
+        /* max-width: 90vw; */
     }
     
+    .modal-image-card-container {
+        width: 100%;
+        height: 400px;
+    }
+
+    .modal.active {
+        padding: 0 6%;
+    }
+
     .image-card-container {
         width: 250px;
         height: 350px;
@@ -1104,7 +1113,16 @@ img#qr-code {
         max-height: 200px;
         height: 100%;
     }
-    
+
+    .modal-image-card-container {
+        width: 100%;
+        height: 350px;
+    }
+
+    .modal.active {
+        padding: 0 7%;
+    }
+        
     .image-card-container {
         width: 200px;
         height: 300px;
@@ -1115,11 +1133,11 @@ img#qr-code {
         font-size: 1.2rem;
     }
 
-
+/* 
     .modal-content {
         max-width: 100vw;
         height: auto;
-    }
+    } */
 
     .card p {
         font-size: .8rem;
