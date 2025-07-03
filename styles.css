@@ -28,6 +28,8 @@ header {
     align-items: center;
     width: 100%;
     background-color: #3a79ee;
+    /* background-color: #29335C;
+    background-color: #4464AD; */
     text-align: center;
     z-index: 0;
 }
@@ -218,6 +220,24 @@ p.cta-desc {
     position: relative;
     width: 100%;
 }
+
+.section-container .carousel-title {
+    text-align: center;
+    /* background-color: red; */
+    /* padding: 20px 0 20px; */
+    padding: 20px 0;
+}
+
+.carousel-title {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    /* color: #4464AD; */
+    /* color: #2761cd; */
+    color: #393E41;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    }
 
 /* Arrows */
 .carousel-btn {
@@ -852,6 +872,10 @@ img#qr-code {
         height: auto;
     }
 
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
     .pad-hero {
         padding: 20% 1%;
     }
@@ -1054,6 +1078,11 @@ img#qr-code {
         height: auto;
     }
 
+    .carousel-title {
+        font-size: 1.3rem;
+        letter-spacing: .75px;
+    }
+
     .modal-content {
         display: flex;
         flex-direction: column;
@@ -1081,7 +1110,7 @@ img#qr-code {
     }
     
     .card {
-        height: auto;
+        height: 100%;
     }
 
     .create .site-button {
@@ -1107,6 +1136,10 @@ img#qr-code {
     img.spotlight-logo {
         width: 70px;
         height: auto;
+    }
+
+    .carousel-title {
+        font-size: 1.1rem;
     }
     
     .carousel {
