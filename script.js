@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const card = createCard(business);
         carousel.appendChild(card);
     });
+    
 
     // Check if URL contains a business and open modal
     const params = new URLSearchParams(window.location.search);
