@@ -1175,6 +1175,7 @@ img#qr-code {
     .cta-button {
         font-size: 1rem;
         padding: 6px 15px;
+        margin: 10px 0;
     }
 }
 
