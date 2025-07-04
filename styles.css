@@ -1175,7 +1175,7 @@ img#qr-code {
     .cta-button {
         font-size: 1rem;
         padding: 6px 15px;
-        margin: 10px 0;
+        margin: 15px 0 0;
     }
 }
 
@@ -1224,6 +1224,10 @@ img#qr-code {
     p.cta-desc {
         /* color: green; */
         font-size: 1.2rem;
+    }
+
+    .cta-button {
+        margin: 10px 0;
     }
 
 /* 
