@@ -255,17 +255,14 @@ p.cta-desc {
 .section-container .carousel-title {
     text-align: center;
     /* background-color: red; */
-    /* padding: 20px 0 20px; */
     padding: 20px 0;
 }
 
 .carousel-title {
     font-family: "Poppins", serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.8rem;
-    /* color: #4464AD; */
     color: #2761cd;
-    /* color: #393E41; */
     text-transform: uppercase;
     letter-spacing: 1px;
     }
@@ -613,14 +610,14 @@ img.spotlight-logo {
     display: flex; /* Enables Flexbox */
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    top: 1%;
-    right: 1%;
+    top: 1rem;
+    right: 1rem;
     /* font-size: 3rem; */
     width: 3rem;
     height: 3rem;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: normal;
-    color: rgb(221, 221, 221);
+    color: hsla(0, 0%, 87%, 0.503);
     cursor: pointer;
     padding: 10px;
     line-height: .5;
