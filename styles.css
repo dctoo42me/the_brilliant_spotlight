@@ -1162,6 +1162,17 @@ img#qr-code {
         font-size: 30px;
         padding: 2px 25px;
     }
+
+    .section-container .carousel-title {
+        padding: 8px 0;
+        margin: 10px 0;
+        /* background-color: red; */
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 6px 15px;
+    }
 }
 
 @media screen and (max-width: 389px) {
