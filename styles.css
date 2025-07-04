@@ -899,6 +899,10 @@ img#qr-code {
         padding: 15px 0 0;
     }
 
+    .pad-contact {
+        padding: 0 0 10px;
+    }
+
     .image-card-container {
         width: 300px;
         height: 450px;
@@ -940,7 +944,7 @@ img#qr-code {
     }
 
     .social-link {
-        font-size: .8rem;
+        font-size: 1rem;
         padding: 0;
     }
 
@@ -1213,7 +1217,7 @@ img#qr-code {
         
     .image-card-container {
         width: 200px;
-        height: 300px;
+        height: 280px;
     }
 
     p.cta-desc {
