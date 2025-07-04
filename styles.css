@@ -1143,7 +1143,7 @@ img#qr-code {
 
     .image-card-container {
         width: 250px;
-        height: 400px;
+        height: 380px;
     }
     
     .card {
@@ -1165,7 +1165,6 @@ img#qr-code {
 
     .section-container .carousel-title {
         padding: 8px 0;
-        margin: 10px 0;
         /* background-color: red; */
     }
 
