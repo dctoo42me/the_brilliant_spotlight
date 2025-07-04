@@ -610,8 +610,8 @@ img.spotlight-logo {
     display: flex; /* Enables Flexbox */
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    top: 1rem;
-    right: 1rem;
+    top: .25rem;
+    right: .25rem;
     /* font-size: 3rem; */
     width: 3rem;
     height: 3rem;
