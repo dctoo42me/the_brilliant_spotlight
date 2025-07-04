@@ -610,6 +610,9 @@ img.spotlight-logo {
 
 .btn-close {
     position: absolute;
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
     top: 1%;
     right: 1%;
     /* font-size: 3rem; */
