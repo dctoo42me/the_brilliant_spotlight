@@ -984,7 +984,7 @@ img#qr-code {
     }
 
     .business-name h2 {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .content-container {
@@ -1147,7 +1147,7 @@ img#qr-code {
 
     .image-card-container {
         width: 250px;
-        height: 350px;
+        height: 380px;
     }
     
     .card {
