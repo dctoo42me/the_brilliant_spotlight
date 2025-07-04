@@ -273,7 +273,7 @@ p.cta-desc {
 /* Arrows */
 .carousel-btn {
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     border-radius: 50%;
     line-height: 2;
@@ -614,18 +614,19 @@ img.spotlight-logo {
     right: 1%;
     font-size: 3rem;
     font-weight: normal;
-    color: rgb(68, 65, 65);
+    color: rgb(221, 221, 221);
     cursor: pointer;
-    background: rgba(89, 89, 89, 0);
     padding: 10px;
     line-height: .5;
     border: none;
     border-radius: 50%;
+    background-color: rgba(46, 45, 45, 0.518);
     z-index: 9999;
     transition: 0.3s;
     &&:hover{
         color: rgb(220, 220, 220);
-        transform: scale(1.5);
+        background-color: rgb(63, 62, 62);
+        /* transform: scale(1.5); */
     }
 }
 
