@@ -445,19 +445,6 @@ img.spotlight-logo {
     /* animation: spotlightPulse 4s ease-in-out infinite; */
 }
 
-/* Animation Keyframes */
-@keyframes spotlightPulse {
-    0% {
-        filter: brightness(80%); /* Slightly dimmed */
-    }
-    50% {
-        filter: brightness(120%); /* Slightly brighter */
-    }
-    100% {
-        filter: brightness(80%); /* Back to dimmed */
-    }
-}
-
 .city-bg-image a{
     width: fit-content;
     margin: 0 auto
@@ -741,7 +728,6 @@ img#qr-code {
 }
 
 .section-container.form {
-    /* z-index: 10; */
     flex: 1;
     display: flex;
     flex-direction: column;

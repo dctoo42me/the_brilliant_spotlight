@@ -300,4 +300,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (matchedBusiness) openModal(matchedBusiness);
         } else closeModalFunction();
     });
+
 });
+
