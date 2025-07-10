@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     function toggleBackToTop() {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 200) {
             backToTop.classList.add("visible");
             // console.log('visible');
         } else {
