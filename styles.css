@@ -1,7 +1,7 @@
 /* Add any additional CSS styles here */
 html,body {
     height: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 * {
@@ -100,6 +100,7 @@ header a {
 }
 
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -809,6 +810,36 @@ img#qr-code {
     font-size: x-small;
     color: #838fa3;
 }
+
+/* scroll to top button */
+#backToTop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #0087f9;
+    color: white;
+    border: 2px solid #0087f9;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100000; /* Ensure it's above other elements */
+}
+
+#backToTop.visible {
+    display: block;
+    opacity: 1;
+}
+
+#backToTop:hover {
+    background-color: white;
+    color: #0087f9;
+}
+
 
 /***********************Media Queries*************************/
 

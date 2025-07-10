@@ -1,21 +1,31 @@
 document.addEventListener("DOMContentLoaded", async function () {
+    // console.log("DOM fully loaded and script running");
+
     const carousel = document.querySelector(".carousel");
     const leftBtn = document.querySelector(".carousel-btn.left");
     const rightBtn = document.querySelector(".carousel-btn.right");
     const modal = document.querySelector(".modal");
     const modalContent = document.querySelector(".modal-content");
     const closeModal = document.querySelector(".btn-close");
+    const backToTop = document.getElementById("backToTop");
 
     let isSwiping = false;
     let isSharing = false;
 
-    if (!carousel) return; // Exit if carousel is not found
+    if (!carousel) {
+        console.warn("Carousel not found, skipping carousel logic");
+    }
 
-    // Fetch business data from JSON file
-    const response = await fetch("businesses.json");
-    const businesses = await response.json();
+    let businesses = [];
+    try {
+        const response = await fetch("businesses.json");
+        if (!response.ok) throw new Error("Failed to fetch businesses.json");
+        businesses = await response.json();
+        // console.log("Businesses loaded successfully");
+    } catch (error) {
+        console.error("Error loading businesses.json:", error);
+    }
 
-    // Function to create cards dynamically
     function createCard(business) {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -31,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
         `;
 
-        card.setAttribute("data-business-id", business.id); // Use `id` for uniqueness
+        card.setAttribute("data-business-id", business.id);
 
         card.addEventListener("click", function (e) {
             if (!isSwiping) openModal(business);
@@ -40,14 +50,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         return card;
     }
 
-    // Add all cards to carousel
-    businesses.forEach((business) => {
-        const card = createCard(business);
-        carousel.appendChild(card);
-    });
-    
+    if (carousel) {
+        businesses.forEach((business) => {
+            const card = createCard(business);
+            carousel.appendChild(card);
+        });
+    }
 
-    // Check if URL contains a business and open modal
     const params = new URLSearchParams(window.location.search);
     const businessId = params.get("business");
     if (businessId) {
@@ -58,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     let isAnimating = false;
-    let cardWidth = getCardWidth(); // Initial card width calculation
+    let cardWidth = getCardWidth();
 
     function getCardWidth() {
         const firstCard = document.querySelector(".card");
@@ -66,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const cardStyle = window.getComputedStyle(firstCard);
         const cardMarginRight = parseInt(cardStyle.marginRight) || 0;
-        const cardGap = 20; // Match CSS gap
+        const cardGap = 20;
 
         return firstCard.offsetWidth + cardMarginRight + cardGap;
     }
@@ -77,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.addEventListener("resize", updateCardWidth);
 
     function shiftLeft() {
-        if (isAnimating) return;
+        if (isAnimating || !carousel) return;
         isAnimating = true;
 
         updateCardWidth();
@@ -85,7 +94,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const firstCard = carousel.firstElementChild;
         const clone = firstCard.cloneNode(true);
 
-        // Add event listener to the cloned card
         const businessId = firstCard.getAttribute("data-business-id");
         const business = businesses.find(b => b.id === parseInt(businessId));
         if (business) {
@@ -107,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function shiftRight() {
-        if (isAnimating) return;
+        if (isAnimating || !carousel) return;
         isAnimating = true;
 
         updateCardWidth();
@@ -115,7 +123,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const lastCard = carousel.lastElementChild;
         const clone = lastCard.cloneNode(true);
 
-        // Add event listener to the cloned card
         const businessId = lastCard.getAttribute("data-business-id");
         const business = businesses.find(b => b.id === parseInt(businessId));
         if (business) {
@@ -142,34 +149,37 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
 
-    leftBtn.addEventListener("click", shiftRight);
-    rightBtn.addEventListener("click", shiftLeft);
+    if (leftBtn && rightBtn) {
+        leftBtn.addEventListener("click", shiftRight);
+        rightBtn.addEventListener("click", shiftLeft);
+    }
 
     let startX, moveX;
 
-    carousel.addEventListener("touchstart", (e) => {
-        isSwiping = false;
-        startX = e.touches[0].clientX;
-    });
+    if (carousel) {
+        carousel.addEventListener("touchstart", (e) => {
+            isSwiping = false;
+            startX = e.touches[0].clientX;
+        });
 
-    carousel.addEventListener("touchmove", (e) => {
-        moveX = e.touches[0].clientX;
-        if (Math.abs(moveX - startX) > 30) isSwiping = true;
-    });
+        carousel.addEventListener("touchmove", (e) => {
+            moveX = e.touches[0].clientX;
+            if (Math.abs(moveX - startX) > 30) isSwiping = true;
+        });
 
-    carousel.addEventListener("touchend", () => {
-        if (isSwiping && Math.abs(moveX - startX) > 50) {
-            if (moveX < startX) shiftLeft();
-            else shiftRight();
-        }
-    });
+        carousel.addEventListener("touchend", () => {
+            if (isSwiping && Math.abs(moveX - startX) > 50) {
+                if (moveX < startX) shiftLeft();
+                else shiftRight();
+            }
+        });
+    }
 
     function openModal(business) {
         if (!modal || !modalContent) {
-            console.error("Modal elements not found!");
+            console.error("Modal or modal content not found!");
             return;
         }
-        // Use a unique timestamp to force re-scraping
         const timestamp = Date.now();
         const shareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}&v=${timestamp}`;
 
@@ -190,107 +200,114 @@ document.addEventListener("DOMContentLoaded", async function () {
         </div>
         `;
 
-        // Detect if the user is on a mobile device with share support
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const canShareFiles = isMobile && navigator.share && navigator.canShare;
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const canShare = isMobile && navigator.share; // Check if share is supported
 
-    // Add event listener to the Save Deal button
-    const saveButton = modalContent.querySelector(".save-ad");
-    saveButton.addEventListener("click", async (e) => {
-        e.preventDefault(); // Prevent default link behavior
+        const saveButton = modalContent.querySelector(".save-ad");
+        saveButton.addEventListener("click", async (e) => {
+            e.preventDefault();
 
-        if (canShareFiles) {
-            try {
-                // Fetch the image as a blob
-                const response = await fetch(business.image);
-                if (!response.ok) throw new Error("Image fetch failed");
-                const blob = await response.blob();
-                const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
+            if (canShare) {
+                try {
+                    const response = await fetch(business.image);
+                    if (!response.ok) throw new Error("Image fetch failed");
+                    const blob = await response.blob();
+                    const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
 
-                // Check if the browser can share files
-                if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                    await navigator.share({
-                        files: [file],
-                        title: `Save ${business.name} Ad`,
-                        text: `Save this Ad from ${business.name} to your Photos!`,
-                    });
-                    return; // Exit after sharing
-                }
-            } catch (error) {
-                console.error("Share failed:", error);
-                // Fallback to download if sharing fails
-            }
-        }
-
-        // Fallback: Trigger download
-        const isMobileFallback = isMobile ? "Long-press or right-click the image to save or download the ad." : "Long-press or right-click the image to save or download the ad.";
-        alert(isMobileFallback);
-        // window.location.href = business.image;
-    });
-
-        document.getElementById("share-button").addEventListener("click", () => {
-            if (navigator.share && window.innerWidth < 768) {
-                isSharing = true;
-                navigator.share({
-                    title: business.name,
-                    text: `Discover why ${business.name} is a Local Gem!`,
-                    url: shareUrl,
-                }).then(() => {
-                    isSharing = false;
-                    console.log("Share completed successfully");
-                }).catch((error) => {
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: `Save ${business.name} Ad`,
+                            text: `Save this Ad from ${business.name} to your Photos!`,
+                        });
+                        return;
+                    }
+                } catch (error) {
                     console.error("Share failed:", error);
-                    isSharing = false;
-                    alert("Sharing failed. Please try again or use the QR code option.");
-                });
-            } else {
-                let qrCodeContainer = document.getElementById("qr-code-container");
-
-                if (!qrCodeContainer.querySelector("#qr-code")) {
-                    qrCodeContainer.innerHTML = "";
-
-                    const qrCode = document.createElement("img");
-                    qrCode.id = "qr-code";
-                    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(shareUrl)}`;
-                    qrCodeContainer.appendChild(qrCode);
-                    qrCodeContainer.style.padding = '20px';
-
-                    const closeButton = document.createElement("button");
-                    closeButton.id = "qr-close-button";
-                    closeButton.textContent = "Close";
-                    closeButton.style.display = "block";
-                    closeButton.style.marginTop = "10px";
-                    closeButton.addEventListener("click", () => {
-                        qrCodeContainer.innerHTML = "";
-                        qrCodeContainer.style.padding = "0";
-                    });
-                    qrCodeContainer.appendChild(closeButton);
                 }
             }
+
+            const isMobileFallback = isMobile ? "Long-press or right-click the image to save or download the ad." : "Right-click the image to save or download the ad.";
+            alert(isMobileFallback);
         });
+
+        const shareButton = document.getElementById("share-button");
+        if (shareButton) {
+            shareButton.addEventListener("click", () => {
+                if (canShare && window.innerWidth < 768) {
+                    isSharing = true;
+                    navigator.share({
+                        title: business.name,
+                        text: `Discover why ${business.name} is a Local Gem!`,
+                        url: shareUrl,
+                    }).then(() => {
+                        isSharing = false;
+                        console.log("Share completed successfully");
+                    }).catch((error) => {
+                        console.error("Share failed:", error);
+                        isSharing = false;
+                        alert("Sharing failed. Please try again or use the QR code option.");
+                    });
+                } else {
+                    const qrCodeContainer = document.getElementById("qr-code-container");
+                    if (qrCodeContainer && !qrCodeContainer.querySelector("#qr-code")) {
+                        qrCodeContainer.innerHTML = "";
+                        const qrCode = document.createElement("img");
+                        qrCode.id = "qr-code";
+                        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(shareUrl)}`;
+                        qrCode.onerror = () => console.error("Failed to load QR code");
+                        qrCodeContainer.appendChild(qrCode);
+                        qrCodeContainer.style.padding = '20px';
+                        const closeButton = document.createElement("button");
+                        closeButton.id = "qr-close-button";
+                        closeButton.textContent = "Close";
+                        closeButton.style.display = "block";
+                        closeButton.style.marginTop = "10px";
+                        closeButton.addEventListener("click", () => {
+                            qrCodeContainer.innerHTML = "";
+                            qrCodeContainer.style.padding = "0";
+                        });
+                        qrCodeContainer.appendChild(closeButton);
+                    }
+                }
+            });
+        }
 
         window.history.pushState({ business: business.id }, "", shareUrl);
         modal.classList.add("active");
-        carousel.style.pointerEvents = "none";
-        leftBtn.style.display = "none";
-        rightBtn.style.display = "none";
+        if (carousel) {
+            carousel.style.pointerEvents = "none";
+            leftBtn.style.display = "none";
+            rightBtn.style.display = "none";
+        }
     }
 
     function closeModalFunction() {
         if (!isSharing) {
             modal.classList.remove("active");
-            carousel.style.pointerEvents = "auto";
+            if (carousel) {
+                carousel.style.pointerEvents = "auto";
+                leftBtn.style.display = "block";
+                rightBtn.style.display = "block";
+            }
             window.history.pushState({}, "", window.location.origin + window.location.pathname);
-            leftBtn.style.display = "block";
-            rightBtn.style.display = "block";
-
         }
     }
 
-    closeModal.addEventListener("click", closeModalFunction);
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) closeModalFunction();
-    });
+    if (closeModal) {
+        console.log("Close modal button found");
+        closeModal.addEventListener("click", closeModalFunction);
+    } else {
+        console.warn("Close modal button (.btn-close) not found, skipping event listener");
+    }
+
+    if (modal) {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) closeModalFunction();
+        });
+    } else {
+        console.warn("Modal element not found, skipping click event listener");
+    }
 
     window.addEventListener("popstate", () => {
         if (window.location.search.includes("business")) {
@@ -298,8 +315,37 @@ document.addEventListener("DOMContentLoaded", async function () {
             const businessId = urlParams.get("business");
             const matchedBusiness = businesses.find(b => b.id === parseInt(businessId));
             if (matchedBusiness) openModal(matchedBusiness);
-        } else closeModalFunction();
+        } else if (modal) {
+            closeModalFunction();
+        }
     });
 
-});
+    function toggleBackToTop() {
+        if (window.scrollY > 20) {
+            backToTop.classList.add("visible");
+            // console.log('visible');
+        } else {
+            backToTop.classList.remove("visible");
+            // console.log('boo');
+        }
+    }
 
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    if (backToTop) {
+        // console.log("Back to top button found");
+        window.addEventListener("scroll", toggleBackToTop);
+        backToTop.addEventListener("click", function(e) {
+            e.preventDefault();
+            // console.log("Back to top clicked");
+            scrollToTop();
+        });
+    } else {
+        console.error("Back to top button not found! Check ID 'backToTop' in HTML.");
+    }
+});
