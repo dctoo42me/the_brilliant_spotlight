@@ -385,7 +385,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         const name = business.name.trim();
         const wordCount = name.split(/\s+/).length;
         const charCount = name.length;
-        const fontSize = (wordCount > 4 || charCount > 26) ? "18px" : "24px";
+        // const fontSize = (wordCount > 4 || charCount > 26) ? "18px" : "24px";
+        const fontSize = (wordCount > 4 || charCount > 26) ? "1rem" : null;
 
         card.innerHTML = `
             <div class="image-card-container">
