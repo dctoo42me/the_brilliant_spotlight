@@ -264,9 +264,10 @@ p.cta-desc {
     font-family: "Poppins", serif;
     font-weight: 500;
     font-size: 1.8rem;
-    color: #2761cd;
+    /* color: #2761cd; */
+    color: #355693;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     }
 
 /* Arrows */
