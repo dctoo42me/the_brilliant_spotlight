@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     async function loadBusinesses() {
     try {
-        const response = await fetch('/api/get-businesses');
+        const response = await fetch('api/get-businesses');
 
         if (!response.ok) {
             throw new Error(`Failed to fetch businesses: ${response.status} - ${await response.text()}`);
