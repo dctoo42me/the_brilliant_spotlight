@@ -369,7 +369,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     async function loadBusinesses() {
     try {
         const campaignId = "austin-july25"; // ← This can later be dynamic
-        const response = await fetch(`https://script.google.com/macros/s/AKfycbwkDU1usf0e6cfSaznGg2pevxyGi7KSt9lRz5PdTtrR-xO5SLxqPbAjKOgRXp7S8Iu9lA/exec?campaign_id=${campaignId}`);
+        const origin = window.location.origin;
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbwkDU1usf0e6cfSaznGg2pevxyGi7KSt9lRz5PdTtrR-xO5SLxqPbAjKOgRXp7S8Iu9lA/exec?campaign_id=${campaignId}&origin=${origin}`);
 
 
         if (!response.ok) {
