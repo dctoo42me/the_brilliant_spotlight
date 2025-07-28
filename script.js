@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         card.innerHTML = `
             <div class="image-card-container">
-                <img src="${business.image}" alt="${business.name}">
+                <img src="${business.image || 'images/projects/placeholder.png'}" alt="${business.name}">
             </div>
             <div class="card-content">
                 <div class="business-name">
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             modalContent.innerHTML = `
             <div class="card">
                 <div class="modal-image-card-container">
-                <img src="${business.image}" alt="${business.name}">
+                <img src="${business.image || 'images/projects/placeholder.png'}" alt="${business.name}">
                 </div>
                 <div class="card-content">
                     <div class="business-name">
@@ -368,7 +368,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     async function loadBusinesses() {
     try {
-        const response = await fetch('api/get-businesses');
+        const campaignId = "austin-july25"; // ← This can later be dynamic
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbwkDU1usf0e6cfSaznGg2pevxyGi7KSt9lRz5PdTtrR-xO5SLxqPbAjKOgRXp7S8Iu9lA/exec?campaign_id=${campaignId}`);
+
 
         if (!response.ok) {
             throw new Error(`Failed to fetch businesses: ${response.status} - ${await response.text()}`);
