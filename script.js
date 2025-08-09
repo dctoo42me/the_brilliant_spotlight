@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async function () {
     console.log("DOM fully loaded and script running");
 
@@ -9,7 +10,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     const closeModal = document.querySelector(".btn-close");
     // const backToTop = document.getElementById("backToTop");
 
-    let isSwiping = false;
+    
+    function getCardWidth() {
+        const firstCard = document.querySelector(".card");
+        if (!firstCard) return 0;
+
+        const cardStyle = window.getComputedStyle(firstCard);
+        const cardMarginRight = parseInt(cardStyle.marginRight) || 0;
+        const cardGap = 20;
+
+        return firstCard.offsetWidth + cardMarginRight + cardGap;
+    }
+
+    let cardWidth = getCardWidth();
+
+    function updateCardWidth() {
+        cardWidth = getCardWidth();
+    }
+    window.addEventListener("resize", updateCardWidth);
+
     let isSharing = false;
     let businesses = []; // Declare businesses here
 
@@ -17,8 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.warn("Carousel not found, skipping carousel logic");
     }
 
-    // Load businesses from the backend
-    await loadBusinesses();
+    // Load businesses (from local businesses.json)
 
     function createCard(business) {
         const card = document.createElement("div");
@@ -33,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         card.innerHTML = `
             <div class="image-card-container">
-                <img src="${business.image || 'images/projects/placeholder.png'}" alt="${business.name}">
+                <img src="${business.image}" alt="${business.name}">
             </div>
             <div class="card-content">
                 <div class="business-name">
@@ -62,27 +80,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     let isAnimating = false;
-    let cardWidth = getCardWidth();
-
-    function getCardWidth() {
-        const firstCard = document.querySelector(".card");
-        if (!firstCard) return 0;
-
-        const cardStyle = window.getComputedStyle(firstCard);
-        const cardMarginRight = parseInt(cardStyle.marginRight) || 0;
-        const cardGap = 20;
-
-        return firstCard.offsetWidth + cardMarginRight + cardGap;
-    }
-
-    function updateCardWidth() {
-        cardWidth = getCardWidth();
-    }
-    window.addEventListener("resize", updateCardWidth);
 
     function shiftLeft() {
-        if (isAnimating || !carousel|| !carousel.firstElementChild) return;
-    isAnimating = true;
+        if (isAnimating || !carousel || !carousel.firstElementChild) return;
+        isAnimating = true;
 
         updateCardWidth();
 
@@ -110,8 +111,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function shiftRight() {
-        if (isAnimating || !carousel|| !carousel.lastElementChild) return;
-    isAnimating = true;
+        if (isAnimating || !carousel || !carousel.lastElementChild) return;
+        isAnimating = true;
 
         updateCardWidth();
 
@@ -190,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             modalContent.innerHTML = `
             <div class="card">
                 <div class="modal-image-card-container">
-                <img src="${business.image || 'images/projects/placeholder.png'}" alt="${business.name}">
+                <img src="${business.image}" alt="${business.name}">
                 </div>
                 <div class="card-content">
                     <div class="business-name">
@@ -204,56 +205,142 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             `;
 
+            // Device / capability detection
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const canShare = isMobile && navigator.share && navigator.canShare;
+            // Better iOS detection (iPadOS touch Macs handled)
+            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const supportsShare = !!navigator.share; // Basic Web Share API support
+            const supportsCanShare = typeof navigator.canShare === 'function'; // for file sharing (may be absent on iOS but present on some Android)
 
-            const saveButton = modalContent.querySelector(".save-ad");
-            saveButton.addEventListener("click", async (e) => {
-                e.preventDefault();
+            // Save Ad - try file sharing when available (files)
+            // const saveButton = modalContent.querySelector(".save-ad");
+            // if (saveButton) {
+            //     saveButton.addEventListener("click", async (e) => {
+            //         e.preventDefault();
 
-                if (canShare) {
+            //         // Attempt to share image file if browser supports file sharing
+            //         if (supportsShare && supportsCanShare) {
+            //             try {
+            //                 const response = await fetch(business.image);
+            //                 if (!response.ok) throw new Error("Image fetch failed");
+            //                 const blob = await response.blob();
+            //                 const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
+
+            //                 if (navigator.canShare({ files: [file] })) {
+            //                     try {
+            //                         await navigator.share({
+            //                             files: [file],
+            //                             title: `Save ${business.name} Ad`,
+            //                             text: `Save this Ad from ${business.name} to your Photos!`,
+            //                         });
+            //                         return;
+            //                     } catch (shareErr) {
+            //                         console.error("File share failed:", shareErr);
+            //                         // fall through to fallback below
+            //                     }
+            //                 }
+            //             } catch (error) {
+            //                 console.error("Preparing file for share failed:", error);
+            //                 // fall through to fallback below
+            //             }
+            //         }
+
+            //         const isMobileFallback = isMobile ? "Long-press or tap and hold the image to save or download the ad." : "Right-click the image to save or download the ad.";
+            //         alert(isMobileFallback);
+            //     });
+            // } else {
+            //     console.warn("Save button not found in modalContent");
+            // }
+
+const saveButton = modalContent.querySelector(".save-ad");
+if (saveButton) {
+    saveButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        // First, try Web Share API with file sharing if supported
+        if (supportsShare && supportsCanShare) {
+            try {
+                const response = await fetch(business.image);
+                if (!response.ok) throw new Error("Image fetch failed");
+                const blob = await response.blob();
+                const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
+
+                if (navigator.canShare({ files: [file] })) {
                     try {
-                        const response = await fetch(business.image);
-                        if (!response.ok) throw new Error("Image fetch failed");
-                        const blob = await response.blob();
-                        const file = new File([blob], `${business.name}_ad.png`, { type: 'image/png' });
-
-                        if (navigator.canShare({ files: [file] })) {
-                            await navigator.share({
-                                files: [file],
-                                title: `Save ${business.name} Ad`,
-                                text: `Save this Ad from ${business.name} to your Photos!`,
-                            }).catch((error) => {
-                                console.error("Share failed:", error);
-                            });
-                            return;
-                        }
-                    } catch (error) {
-                        console.error("Share failed:", error);
+                        await navigator.share({
+                            files: [file],
+                            title: `Save ${business.name} Ad`,
+                            text: `Save this Ad from ${business.name} to your Photos!`,
+                        });
+                        return; // success, done here
+                    } catch (shareErr) {
+                        console.error("File share failed:", shareErr);
+                        // Fall through to fallback
                     }
                 }
+            } catch (error) {
+                console.error("Preparing file for share failed:", error);
+                // Fall through to fallback
+            }
+        }
 
-                const isMobileFallback = isMobile ? "Long-press or right-click the image to save or download the ad." : "Right-click the image to save or download the ad.";
-                alert(isMobileFallback);
-            });
+        // Fallback: try to download the image directly
+        try {
+            // Use fetch + blob to avoid CORS problems or direct download link
+            const response = await fetch(business.image);
+            if (!response.ok) throw new Error("Image fetch failed");
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
 
+            // Create a hidden download link and click it programmatically
+            const downloadLink = document.createElement('a');
+            downloadLink.href = blobUrl;
+            downloadLink.download = `${business.name}_ad.png`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+
+            // Cleanup
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(blobUrl);
+        } catch (downloadError) {
+            console.error("Direct download failed:", downloadError);
+
+            // If all else fails, show instructions
+            const isMobileFallback = isMobile
+                ? "Long-press or tap and hold the image to save or download the ad."
+                : "Right-click the image to save or download the ad.";
+            alert(isMobileFallback);
+        }
+    });
+} else {
+    console.warn("Save button not found in modalContent");
+}
+
+
+            // Share button: use navigator.share on mobile/iOS when available; otherwise show QR code
             const shareButton = document.getElementById("share-button");
             if (shareButton) {
-                shareButton.addEventListener("click", () => {
-                    if (canShare && window.innerWidth < 768) {
+                shareButton.addEventListener("click", async () => {
+                    // Decide if we should use native share sheet:
+                    // - Browser must support navigator.share
+                    // - Prefer native share on mobile or iOS Safari (skip QR entirely on iOS)
+                    const canUseNativeShareSheet = supportsShare && (isMobile || isiOS || window.innerWidth < 768);
+
+                    if (canUseNativeShareSheet) {
                         isSharing = true;
-                        navigator.share({
-                            title: business.name,
-                            text: `Discover why ${business.name} is a Local Gem!`,
-                            url: shareUrl,
-                        }).then(() => {
-                            isSharing = false;
+                        try {
+                            await navigator.share({
+                                title: business.name,
+                                text: `Discover why ${business.name} is a Local Gem!`,
+                                url: shareUrl,
+                            });
                             console.log("Share completed successfully");
-                        }).catch((error) => {
+                        } catch (error) {
                             console.error("Share failed:", error);
-                            isSharing = false;
                             alert("Sharing failed. Please try again or use the QR code option.");
-                        });
+                        } finally {
+                            isSharing = false;
+                        }
                     } else {
                         const qrCodeContainer = document.getElementById("qr-code-container");
                         if (qrCodeContainer && !qrCodeContainer.querySelector("#qr-code")) {
@@ -283,12 +370,13 @@ document.addEventListener("DOMContentLoaded", async function () {
                 });
             }
 
+            // push state to URL so share link includes business
             window.history.pushState({ business: business.id }, "", shareUrl);
             modal.classList.add("active");
             if (carousel) {
                 carousel.style.pointerEvents = "none";
-                leftBtn.style.display = "none";
-                rightBtn.style.display = "none";
+                if (leftBtn) leftBtn.style.display = "none";
+                if (rightBtn) rightBtn.style.display = "none";
             }
         } catch (error) {
             console.error("Error in openModal:", error);
@@ -300,8 +388,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             modal.classList.remove("active");
             if (carousel) {
                 carousel.style.pointerEvents = "auto";
-                leftBtn.style.display = "block";
-                rightBtn.style.display = "block";
+                if (leftBtn) leftBtn.style.display = "block";
+                if (rightBtn) rightBtn.style.display = "block";
             }
             window.history.pushState({}, "", window.location.origin + window.location.pathname);
         }
@@ -367,39 +455,55 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     async function loadBusinesses() {
-    try {
-        const campaignId = "austin-july25"; // ← This can later be dynamic
-        const origin = window.location.origin;
-        const response = await fetch(`https://script.google.com/macros/s/AKfycbwkDU1usf0e6cfSaznGg2pevxyGi7KSt9lRz5PdTtrR-xO5SLxqPbAjKOgRXp7S8Iu9lA/exec?campaign_id=${campaignId}&origin=${origin}`);
-
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch businesses: ${response.status} - ${await response.text()}`);
-        }
-
-        const data = await response.json();
-        console.log("Businesses loaded successfully from API");
-
-        businesses.length = 0;
-        businesses.push(...data);
-    } catch (error) {
-        console.error('Error loading businesses from API:', error);
-        alert('Failed to load businesses. Please check the server status or network connection.');
-    }
-
-    if (carousel && carousel.parentElement) {
-        carousel.innerHTML = '';
-        if (businesses.length > 0) {
-            businesses.forEach((business) => {
-                const card = createCard(business);
-                carousel.appendChild(card);
+        try {
+            // Fetch local JSON file instead of API
+            const response = await fetch('businesses.json', {
+                cache: 'no-cache' // helpful during development
             });
-        } else {
-            carousel.innerHTML = '<p>No businesses available.</p>';
+
+            if (!response.ok) {
+                throw new Error(`Failed to load businesses.json: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log("Businesses loaded successfully from local JSON");
+
+            // Reset array & push new data
+            businesses.length = 0;
+            businesses.push(...data);
+        } catch (error) {
+            console.error('Error loading businesses from JSON:', error);
+            alert('Failed to load businesses from local file. Make sure businesses.json is in the correct location and served by your host.');
         }
+
+        // Populate carousel
+        if (carousel && carousel.parentElement) { // Ensure carousel exists and is in DOM
+            carousel.innerHTML = '';
+            if (businesses.length > 0) {
+                businesses.forEach((business) => {
+                    const card = createCard(business);
+                    carousel.appendChild(card);
+                });
+                // Update cardWidth now that cards exist
+                updateCardWidth();
+            } else {
+                carousel.innerHTML = '<p>No businesses available.</p>';
+            }
+        }
+
+        // If URL had a business query param, try to open it (extra safety)
+        if (businessId) {
+            const matchedBusiness = businesses.find(b => b.id === parseInt(businessId));
+            if (matchedBusiness && modal && !modal.classList.contains('active')) {
+                // small delay to ensure DOM updates are done
+                setTimeout(() => {
+                    openModal(matchedBusiness);
+                }, 50);
+            }
+        }
+        return businesses;
     }
 
-    return businesses;
-}
+    await loadBusinesses();
 
 });
