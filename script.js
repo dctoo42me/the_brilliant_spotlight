@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.addEventListener("resize", updateCardWidth);
 
     let isSharing = false;
+    let isSwiping = false;
     let businesses = []; // Declare businesses here
 
     if (!carousel) {
