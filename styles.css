@@ -1171,6 +1171,14 @@ img#qr-code {
         margin: 4px 0 8px;
     }
 
+    .carousel-title {
+        font-size: 1.1rem;
+    }
+
+    .campaign-title {
+        font-size: 1rem;
+    }
+
     .modal-content {
         display: flex;
         flex-direction: column;
@@ -1234,14 +1242,6 @@ img#qr-code {
     img.spotlight-logo {
         width: 70px;
         height: auto;
-    }
-
-    .carousel-title {
-        font-size: 1.1rem;
-    }
-
-    .campaign-title {
-        font-size: 1rem;
     }
     
     .carousel {
