@@ -533,16 +533,16 @@ function showNotification(message, duration = 3000) {
 
 
   // Back to top functionality
-  function toggleBackToTop() {
-    console.log("Checking scroll position:", window.scrollY);
+    function toggleBackToTop() {
+    // console.log("Checking scroll position:", window.scrollY);
     if (window.scrollY > 20) {
-      backToTop.classList.add("visible");
-      console.log("Visible class added, current classes:", backToTop.className);
+        backToTop.classList.add("visible");
+    //   console.log("Visible class added, current classes:", backToTop.className);
     } else {
-      backToTop.classList.remove("visible");
-      console.log("Visible class removed, current classes:", backToTop.className);
+        backToTop.classList.remove("visible");
+    //   console.log("Visible class removed, current classes:", backToTop.className);
     }
-  }
+    }
 
   function scrollToTop() {
     window.scrollTo({

@@ -261,7 +261,6 @@ p.cta-desc {
     font-weight: 500;
     text-transform: uppercase;
     line-height: 1;
-    margin-bottom: px;
 }
 
 .carousel-title {
@@ -1249,7 +1248,7 @@ img#qr-code {
     }
     
     .carousel-title {
-        padding: 4px 0;
+        padding-top: 6px;
     }
 
     .card-content {
