@@ -153,16 +153,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // When user changes campaign selection:
-campaignSelect.addEventListener("change", async (e) => {
-  const selectedId = e.target.value;
-  const selectedCampaign = campaigns.find((c) => c.id === selectedId);
-  if (selectedCampaign) {
-    currentCampaign = selectedCampaign;
-    updateCampaignTitle();
-    console.log(`Campaign switched to: ${currentCampaign.name} (ID: ${currentCampaign.id})`);
-    showNotification(`Switched to campaign: ${currentCampaign.name}`);
-    await loadBusinesses();
+document.addEventListener("DOMContentLoaded", () => {
+  const campaignSelect = document.getElementById("campaignSelect");
+
+  if (campaignSelect) { // ✅ Avoids errors when dropdown isn't present
+    campaignSelect.addEventListener("change", async (e) => {
+      const selectedId = e.target.value;
+      const selectedCampaign = campaigns.find((c) => c.id === selectedId);
+
+      if (selectedCampaign) {
+        currentCampaign = selectedCampaign;
+        updateCampaignTitle();
+        console.log(`Campaign switched to: ${currentCampaign.name} (ID: ${currentCampaign.id})`);
+        showNotification(`Switched to campaign: ${currentCampaign.name}`);
+        await loadBusinesses();
+      }
+    });
   }
 });
 
