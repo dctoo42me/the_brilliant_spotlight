@@ -1,0 +1,211 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #fefefe;
+  color: #222;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+.top-buttons {
+  position: sticky;
+  top: 0;
+  background: white; /* or match your page background */
+  padding: 10px 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc;
+}
+
+.top-buttons button,
+.top-buttons select {
+  padding: 8px 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #eee;
+  transition: background 0.3s ease;
+}
+
+.top-buttons button:hover,
+.top-buttons select:hover {
+  background: #ddd;
+}
+
+#business-tally {
+    padding-top: 10px;
+}
+
+#business-list {
+  margin-bottom: 2rem;
+}
+
+.business-item {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.business-item strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.business-item img {
+  display: block;
+  margin: 0.5rem 0;
+  max-width: 150px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.business-item a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.business-item a:hover {
+  text-decoration: underline;
+}
+
+.business-item button {
+  margin-right: 8px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #999;
+  background: #eee;
+  transition: background 0.3s ease;
+}
+
+.business-item button:hover {
+  background: #ddd;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="url"],
+form input[type="date"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 6px 10px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #0077cc;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #005fa3;
+}
+
+#business-form {
+    padding-bottom: 10px;
+}
+
+#save-all {
+    margin-top: 10px;
+}
+
+#btn-show-all {
+    margin-top: 10px;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #0056b3;
+}
+
+#bulk-update-section input[type="text"]:disabled,
+#bulk-update-section input[type="date"]:disabled {
+  background: #eee;
+  color: #666;
+}
+
+  /* Clean style for prefill locks aligned to right of inputs */
+  .prefill-lock-container {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 0.85em;
+    color: #555;
+    user-select: none;
+    cursor: pointer;
+  }
+  .prefill-lock-container input[type="checkbox"] {
+    margin-right: 4px;
+    cursor: pointer;
+  }
+  /* Master toggle styling */
+  #prefill-master-toggle {
+    margin-bottom: 1em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+  }
+  #prefill-master-toggle input {
+    margin-right: 6px;
+  }
+  /* Form labels & inputs spacing */
+  form#business-form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  form#business-form label > span.input-label {
+    flex: 0 0 120px;
+  }
+  form#business-form input[type="text"],
+  form#business-form input[type="url"],
+  form#business-form input[type="date"] {
+    flex: 1 1 auto;
+    padding: 6px 8px;
+    font-size: 1em;
+  }
+  /* Combine checkbox on its own line */
+  #combineCampaignLocation {
+    margin-left: 4px;
+    transform: translateY(1px);
+  }
+

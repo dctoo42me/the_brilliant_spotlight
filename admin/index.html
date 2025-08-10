@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Business Admin Panel</title>
+<link rel="stylesheet" href="admin.css" />
+<style>
+  /* Clean style for prefill locks aligned to right of inputs */
+  .prefill-lock-container {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 0.85em;
+    color: #555;
+    user-select: none;
+    cursor: pointer;
+  }
+  .prefill-lock-container input[type="checkbox"] {
+    margin-right: 4px;
+    cursor: pointer;
+  }
+  /* Master toggle styling */
+  #prefill-master-toggle {
+    margin-bottom: 1em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+  }
+  #prefill-master-toggle input {
+    margin-right: 6px;
+  }
+  /* Form labels & inputs spacing */
+  form#business-form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  form#business-form label > span.input-label {
+    flex: 0 0 120px;
+  }
+  form#business-form input[type="text"],
+  form#business-form input[type="url"],
+  form#business-form input[type="date"] {
+    flex: 1 1 auto;
+    padding: 6px 8px;
+    font-size: 1em;
+  }
+  /* Combine checkbox on its own line */
+  #combineCampaignLocation {
+    margin-left: 4px;
+    transform: translateY(1px);
+  }
+</style>
+</head>
+<body>
+
+<h1>Business Admin Panel</h1>
+
+<div class="top-buttons">
+    <button id="btn-add-edit">Add / Edit Business</button>
+    <select id="campaign-filter" aria-label="Filter by campaign ID">
+    <option value="">-- Filter by Campaign ID --</option>
+    </select>
+    <button id="btn-view-all" style="display:none;">View All Businesses</button>
+    <button id="btn-new-campaign">Begin New Campaign</button>
+    <!-- <button id="save-all">Save All</button> -->
+    <button type="button" id="btn-show-all">Show All Businesses</button>
+    <div id="business-tally" style="margin-bottom: 15px; font-weight: bold;"></div>
+</div>
+
+<div id="business-container"></div>
+
+
+<section id="business-list" aria-live="polite"></section>
+
+<h2>Add / Edit Business</h2>
+
+<!-- Master toggle for prefill locks -->
+<label id="prefill-master-toggle" title="Toggle all prefill locks">
+  <input type="checkbox" id="master-prefill-toggle" />
+  Keep all specified fields prefilled for next addition
+</label>
+
+<form id="business-form" aria-label="Business form">
+    <input type="hidden" id="business-id" />
+
+    <label>
+      <span class="input-label">Name:</span>
+      <input type="text" id="name" required />
+    </label>
+
+    <label>
+      <span class="input-label">Image URL:</span>
+      <input type="text" id="image" required placeholder="e.g. images/logo.png" />
+    </label>
+
+    <label>
+      <span class="input-label">Website:</span>
+      <input type="url" id="website" required placeholder="https://example.com" />
+    </label>
+
+    <label>
+      <span class="input-label">Location:</span>
+      <input type="text" id="location" />
+      <span class="prefill-lock-container" title="Keep Location prefilled">
+        <input type="checkbox" class="prefill-lock-checkbox" data-field="location" />
+        Keep
+      </span>
+    </label>
+
+    <label>
+      <span class="input-label">ZIP:</span>
+      <input type="text" id="zip" />
+      <span class="prefill-lock-container" title="Keep ZIP prefilled">
+        <input type="checkbox" class="prefill-lock-checkbox" data-field="zip" />
+        Keep
+      </span>
+    </label>
+
+    <label>
+      <span class="input-label">Campaign ID:</span>
+      <input type="text" id="campaignId" placeholder="e.g. August2025" />
+      <span class="prefill-lock-container" title="Keep Campaign ID prefilled">
+        <input type="checkbox" class="prefill-lock-checkbox" data-field="campaignId" />
+        Keep
+      </span>
+    </label>
+
+      <!-- Combine button -->
+  <button type="button" id="btn-combine">Combine Campaign + Location</button>
+
+    <label>
+      <span class="input-label">Campaign Start:</span>
+      <input type="date" id="campaignStart" />
+      <span class="prefill-lock-container" title="Keep Campaign Start prefilled">
+        <input type="checkbox" class="prefill-lock-checkbox" data-field="campaignStart" />
+        Keep
+      </span>
+    </label>
+
+    <label>
+      <span class="input-label">Campaign End:</span>
+      <input type="date" id="campaignEnd" />
+      <span class="prefill-lock-container" title="Keep Campaign End prefilled">
+        <input type="checkbox" class="prefill-lock-checkbox" data-field="campaignEnd" />
+        Keep
+      </span>
+    </label>
+
+    <label>
+      <input type="checkbox" id="oneMonthCheckbox" />
+      Set campaign end to 1 month from today
+    </label><br/>
+
+    <button type="submit">Save Business</button>
+    <button type="button" id="reset-form">Clear Form</button>
+</form>
+
+<button id="download-json">Download Updated JSON</button>
+<button id="backToTop" title="Back to Top" style="display:none;">⬆ Top</button>
+
+<script src="admin.js" defer></script>
+</body>
+</html>

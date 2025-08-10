@@ -254,21 +254,48 @@ p.cta-desc {
     /* background: linear-gradient(180deg, #8dc6ff 0%, #4775ec 100%); */
 }
 
-.section-container .carousel-title {
+.section-container .carousel-title, 
+.section-container .campaign-title {
     text-align: center;
-    /* background-color: red; */
-    padding: 20px 0;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: px;
 }
 
 .carousel-title {
-    font-family: "Poppins", serif;
-    font-weight: 500;
-    font-size: 1.8rem;
-    /* color: #2761cd; */
     color: #355693;
-    text-transform: uppercase;
-    /* letter-spacing: 1px; */
-    }
+    font-size: 1.8rem;
+}
+
+.campaign-title {
+    font-size: 1.2rem;
+    color: white;
+}
+
+#campaignSelect {
+    font-size: .75rem;
+    height: fit-content;
+    margin-left: 4px;
+    padding: 0;
+    background-color: rgb(202, 202, 202);
+    /* color: white; */
+    border-radius: 5px;
+}
+
+.campaign-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0 10px;
+    color: white;
+}
+
+.location {
+    padding-left: 10px;
+}
 
 /* Arrows */
 .carousel-btn {
@@ -1140,9 +1167,8 @@ img#qr-code {
         height: auto;
     }
 
-    .carousel-title {
-        font-size: 1.3rem;
-        letter-spacing: .75px;
+    .campaign-title-container {
+        margin: 4px 0 8px;
     }
 
     .modal-content {
@@ -1188,11 +1214,6 @@ img#qr-code {
         padding: 2px 25px;
     }
 
-    .section-container .carousel-title {
-        padding: 8px 0;
-        /* background-color: red; */
-    }
-
     .cta-button {
         font-size: 1rem;
         padding: 6px 15px;
@@ -1217,6 +1238,10 @@ img#qr-code {
 
     .carousel-title {
         font-size: 1.1rem;
+    }
+
+    .campaign-title {
+        font-size: 1rem;
     }
     
     .carousel {

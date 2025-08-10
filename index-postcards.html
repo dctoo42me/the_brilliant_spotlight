@@ -23,6 +23,13 @@
 </head>
 
 <body>
+    <!-- use these calls on console to edit campaigns -->
+    <!-- first create new campaign and name it with businesses-(campaign name).json -->
+    <!-- setCampaignDropdownVisibility(true); -->
+    <!-- make change on dropdown -->
+    <!-- setCampaignDropdownVisibility(false); 
+    must call this or it will revert back to last campaign. wait for notification-->
+
     <div class="main-container cards-bg open-up section-with-glow">
         <header class="pad-small">
             <a href="index.html">
@@ -31,6 +38,15 @@
         </header>
         <div class="section-container">
             <h2 class="carousel-title">Featured Local Businesses</h2>
+            <div class="campaign-title-container">
+                <h2 id="campaign-title" class="campaign-title"></h2>
+                <div class="campaign-title-container">
+                    <h2 id="campaign-title" class="campaign-title"></h2>
+                    <div id="campaign-selector-container" style="display:none; margin-top: 8px;">
+                        <select id="campaignSelect"></select>
+                    </div>
+                </div>
+            </div>
                 <div class="carousel-container">
                     <div class="carousel-wrapper">
                         <button class="carousel-btn left" aria-label="Previous card">&#10094;</button> <!-- Left Arrow -->
