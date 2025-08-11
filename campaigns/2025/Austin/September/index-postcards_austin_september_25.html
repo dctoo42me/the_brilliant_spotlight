@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="Deals & Quality Service Spotlight" />
+    <meta property="og:description" content="Boost your local reach with Every Door Direct Mail! Affordable, targeted print ads designed to put your business in the spotlight and drive results" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/dctoo42me/the_brilliant_spotlight/refs/heads/main/images/og_CHECK%20OUT%20THIS_yellow.png" />
+    <meta property="og:image:alt" content="The Brilliant Spotlight - Discover Trusted Local Businesses" />
+    <link rel="icon" href="images/TheBrilliantSpotlight_Logo_Yellow_Bright_Large.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon_32x32.png" sizes="32x32" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon_76x76.png" sizes="76x76" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon_144x144.png" sizes="144x144" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon_228x228.png" sizes="228x228" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/TheBrilliantSpotlight_Logo_Yellow_Bright_Large.png">
+    <title>The Brilliant Spotlight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        // Folder-based path for campaigns.json and dropdown (always needed)
+        window.DATA_BASE_PATH = '/data/2025/08/campaign_1';
+        // Optional full hardcoded businesses JSON path to override dynamic loading
+        // Comment out or remove if you want dynamic campaign/businesses loading
+        //   window.FULL_DATA_BASE_PATH = '/data/2025/08/campaign_1/businesses-August2025_North_Austin.json';
+    </script>
+</head>
+
+<body>
+    <!-- use these calls on console to edit campaigns -->
+    <!-- first create new campaign and name it with businesses-(campaign name).json -->
+    <!-- setCampaignDropdownVisibility(true); -->
+    <!-- make change on dropdown -->
+    <!-- setCampaignDropdownVisibility(false); 
+    must call this or it will revert back to last campaign. wait for notification-->
+
+    <div class="main-container cards-bg open-up section-with-glow">
+        <header class="pad-small">
+            <a href="index.html">
+                <h1>The Brilliant Spotlight</h1>
+            </a>
+        </header>
+        <div class="section-container">
+            <h2 class="carousel-title">Featured Local Businesses</h2>
+            <div class="campaign-title-container">
+                <h2 id="campaign-title" class="campaign-title"></h2>
+                <div class="campaign-title-container">
+                    <h2 id="campaign-title" class="campaign-title"></h2>
+                    <div id="campaign-selector-container" style="display:none; margin-top: 8px;">
+                        <select id="campaignSelect"></select>
+                    </div>
+                </div>
+            </div>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn left" aria-label="Previous card">&#10094;</button> <!-- Left Arrow -->
+                        <div class="carousel"> <!-- Existing Carousel --> </div>
+                        <button class="carousel-btn right" aria-label="Next card">&#10095;</button> <!-- Right Arrow -->
+                        <div class="cta-btn-container">
+                        <a href="/contact-form.html" class="cta-button">Want Your Business Promoted?</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="modal">
+            <button type="button" class="btn-close" aria-label="Close">&times;</button>
+            <div class="modal-content">
+                <!-- Modal content will be injected here by JavaScript -->
+            </div>
+        </div>
+        <footer class="pad-small">
+            <p>&copy; 2025  The Brilliant Spotlight. All rights reserved.</p>
+            <!-- <p class="smaller">Let us illuminate your business!</p> -->
+        </footer> 
+    </div>
+    <button id="backToTop" style="display: none;">Back to Top</button>
+    <script src="/script.js" defer></script>
+</body>
+
+</html>
+
