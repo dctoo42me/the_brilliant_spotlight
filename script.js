@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     card.innerHTML = `
       <div class="image-card-container">
-        <img src="${business.image && business.image.trim() !== "" ? business.image : 'images/projects/placeholder.png'}" alt="${business.name}">
+        <img src="${business.image && business.image.trim() !== "" ? business.image : '/images/projects/placeholder.png'}" alt="${business.name}">
       </div>
       <div class="card-content">
         <div class="business-name">
@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const imgEl = card.querySelector("img");
     imgEl.onerror = function() {
         this.onerror = null; // Prevent infinite loop
-        this.src = "images/projects/placeholder.png";
+        this.src = "/images/projects/placeholder.png";
     };
 
     card.setAttribute("data-business-id", business.id);
@@ -457,7 +457,7 @@ function openModal(business) {
         modalContent.innerHTML = `
             <div class="card">
                 <div class="modal-image-card-container">
-                    <img src="${business.image && business.image.trim() !== "" ? business.image : 'images/projects/placeholder.png'}" alt="${business.name}">
+                    <img src="${business.image && business.image.trim() !== "" ? business.image : '/images/projects/placeholder.png'}" alt="${business.name}">
                 </div>
                 <div class="card-content">
                     <div class="business-name">
@@ -475,7 +475,7 @@ function openModal(business) {
         const imgEl = modalContent.querySelector("img");
         imgEl.onerror = function() {
             this.onerror = null; // prevent loop
-            this.src = "images/projects/placeholder.png";
+            this.src = "/images/projects/placeholder.png";
         };
 
         // device checks
