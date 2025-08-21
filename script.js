@@ -669,6 +669,26 @@ function openModal(business) {
     backToTop.addEventListener("click", (e) => { e.preventDefault(); scrollToTop(); });
   }
 
+  // Fallback double-tap prevention
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  const now = new Date().getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+// Fallback double-tap prevention
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  const now = new Date().getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+
+
   // --------------------------
   // INITIAL SEQUENCE
   // 1. loadCampaignsConfig() - tries folder near FULL path, then DATA_BASE_PATH, then ./data/campaigns.json

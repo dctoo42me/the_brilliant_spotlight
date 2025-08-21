@@ -1,6 +1,7 @@
 /* Add any additional CSS styles here */
 html,body {
     height: 100%;
+    touch-action: manipulation;
     /* overflow-x: hidden; */
 }
 
