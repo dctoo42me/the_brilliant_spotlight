@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const campaignTitle = document.getElementById("campaign-title");
   // Your page may or may not have a #campaignSelect present; code handles both cases gracefully.
   const campaignSelect = document.getElementById("campaignSelect");
+  const PLACEHOLDER_IMAGE = "/images/projects/placeholder.png";
 
   // --------------------------
   // GLOBAL HELPERS (exposed)
@@ -190,6 +191,33 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   then attempt base + /businesses-<campaignId>.json, fallback to ./data/businesses-<campaignId>.json
   // --------------------------
   async function loadBusinesses() {
+      // Try Laravel API first if no FULL_DATA_BASE_PATH or DATA_BASE_PATH
+    if (!window.FULL_DATA_BASE_PATH && !window.DATA_BASE_PATH) {
+      try {
+        console.log("Attempting to load businesses from API...");
+        const resp = await fetch("/api/businesses", { cache: "no-cache" });
+        if (resp.ok) {
+          const data = await resp.json();
+          businesses.length = 0;
+          // normalize API fields to match existing frontend
+          businesses.push(...data.map(b => ({
+            ...b,
+            image: b.image_url || b.image || "/images/projects/placeholder.png"
+          })));
+
+          console.log("Loaded businesses from API:", businesses);
+          renderBusinessesUI();
+          return; // done ✅
+        } else {
+          console.warn("API fetch failed with status", resp.status, "falling back to archive mode...");
+        }
+      } catch (err) {
+        console.warn("API fetch error, falling back to archive mode:", err);
+      }
+    }
+    // --------------------------
+    // Archive/JSON mode (existing behavior)
+    // --------------------------
     // If FULL override exists -> load directly
     if (window.FULL_DATA_BASE_PATH) {
       const fullPath = normalizeFilePath(window.FULL_DATA_BASE_PATH);
@@ -239,7 +267,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.warn("No current campaign selected, skipping businesses load.");
         return;
       }
-
       // Determine base folder (priority: window.DATA_BASE_PATH > currentCampaign.folder > './data')
       let baseFolder = "";
       if (window.DATA_BASE_PATH) {
@@ -250,7 +277,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       } else {
         baseFolder = "./data";
       }
-
       // Ensure no duplicate trailing slashes
       baseFolder = baseFolder.replace(/\/+$/, "");
 
@@ -276,7 +302,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       businesses.length = 0;
       businesses.push(...data);
     }
+        renderBusinessesUI();
+  }
 
+  // helper to render businesses into carousel (pulled out so both API + JSON can reuse)
+  function renderBusinessesUI() {
     // Now update the UI carousel with the businesses we've got
     if (carousel && carousel.parentElement) {
       carousel.innerHTML = "";
@@ -290,7 +320,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         carousel.innerHTML = "<p>No businesses available.</p>";
       }
     }
-
+    updateCampaignTitle();
+  }
     // If URL has business id param, open that business modal
     const params = new URLSearchParams(window.location.search);
     const businessId = params.get("business");
@@ -303,7 +334,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Update campaign title based on chosen campaign object (if present)
     updateCampaignTitle();
-  }
 
   // Update campaign title element text
   function updateCampaignTitle() {
@@ -330,6 +360,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
+  function safeImageUrl(url) {
+  if (!url || url.trim() === "") return PLACEHOLDER_IMAGE;
+  return url.trim();
+}
+
   // --------------------------
   // Card rendering & existing UI functions (unchanged)
   // --------------------------
@@ -340,12 +375,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     const name = (business.name || "").trim();
     const wordCount = name.split(/\s+/).length;
     const charCount = name.length;
+    const imgSrc = safeImageUrl(business.image);
     let fontSizeStyle = "";
     if (wordCount > 4 || charCount > 26) fontSizeStyle = 'style="font-size: .9rem"';
 
     card.innerHTML = `
       <div class="image-card-container">
-        <img src="${business.image && business.image.trim() !== "" ? business.image : '/images/projects/placeholder.png'}" alt="${business.name}">
+        <img src="${imgSrc}" alt="${business.name}">
       </div>
       <div class="card-content">
         <div class="business-name">
@@ -359,7 +395,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const imgEl = card.querySelector("img");
     imgEl.onerror = function() {
         this.onerror = null; // Prevent infinite loop
-        this.src = "/images/projects/placeholder.png";
+        // this.src = "/images/projects/placeholder.png";
+        this.src = PLACEHOLDER_IMAGE;
     };
 
     card.setAttribute("data-business-id", business.id);
@@ -451,13 +488,14 @@ function openModal(business) {
         const name = (business.name || "").trim();
         const wordCount = name.split(/\s+/).length;
         const charCount = name.length;
+        const imgSrc = safeImageUrl(business.image);
         let fontSizeStyle = "";
         if (wordCount > 4 || charCount > 26) fontSizeStyle = 'style="font-size: 18px"';
 
         modalContent.innerHTML = `
             <div class="card">
                 <div class="modal-image-card-container">
-                    <img src="${business.image && business.image.trim() !== "" ? business.image : '/images/projects/placeholder.png'}" alt="${business.name}">
+                    <img src="${imgSrc}" alt="${business.name}">
                 </div>
                 <div class="card-content">
                     <div class="business-name">
@@ -475,7 +513,8 @@ function openModal(business) {
         const imgEl = modalContent.querySelector("img");
         imgEl.onerror = function() {
             this.onerror = null; // prevent loop
-            this.src = "/images/projects/placeholder.png";
+            // this.src = "/images/projects/placeholder.png";
+            this.src = PLACEHOLDER_IMAGE;
         };
 
         // device checks

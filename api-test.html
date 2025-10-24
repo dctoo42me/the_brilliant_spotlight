@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Connection Test</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 1rem 2rem;
+      background: #f9fafb;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #00ff99;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧩 Laravel API Connection Test</h1>
+  <p>If this works, you’ll see campaign data below:</p>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    // 🧠 Step 1: Decide which backend to talk to
+    const localApi = "http://127.0.0.1:8001/api/campaigns";
+    const remoteApi = "https://your-production-backend-domain.com/api/campaigns"; // Update later
+
+    // Detect whether you're running locally or on GitHub Pages
+    const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+    const apiUrl = isLocal ? localApi : remoteApi;
+
+    console.log(`🔍 Fetching from: ${apiUrl}`);
+
+    // 🧠 Step 2: Fetch the data
+    async function testApi() {
+      const output = document.getElementById("output");
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+
+        // 🧠 Step 3: Show in console & page
+        console.log("✅ API Response:", data);
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        console.error("❌ API Fetch Error:", error);
+        output.textContent = "❌ Error: " + error.message;
+      }
+    }
+
+    testApi();
+  </script>
+</body>
+</html>
