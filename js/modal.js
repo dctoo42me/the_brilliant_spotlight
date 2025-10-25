@@ -182,53 +182,55 @@ function open(business) {
             });
         }
 
-        // 🔹 PART 2 — Updated SHARE LOGIC
-        const shareButton = document.getElementById("share-button");
-        if (shareButton) {
-            shareButton.addEventListener("click", async () => {
-                try {
-                    const cleanUrl = `${baseUrl}?business=${encodeURIComponent(business.id)}`;
-                    const canUseNativeShare = supportsShare && (isMobile || isiOS || window.innerWidth < 768);
+// 🔹 PART 2 — Corrected SHARE LOGIC (preserves full modal URL)
+const shareButton = document.getElementById("share-button");
+if (shareButton) {
+    shareButton.addEventListener("click", async () => {
+        try {
+            // ✅ Use the same full URL currently active (includes &v=)
+            const fullShareUrl = `${window.location.origin}${window.location.pathname}?business=${encodeURIComponent(business.id)}&v=${Date.now()}`;
+            const canUseNativeShare = supportsShare && (isMobile || isiOS || window.innerWidth < 768);
 
-                    if (canUseNativeShare) {
-                        isSharing = true;
-                        await navigator.share({
-                            title: business.name,
-                            text: `Discover why ${business.name} is a Local Gem!`,
-                            url: cleanUrl
-                        });
-                        showToast("✅ Shared successfully!", "success");
-                    } else {
-                        const qrCodeContainer = document.getElementById("qr-code-container");
-                        if (qrCodeContainer && !qrCodeContainer.querySelector("#qr-code")) {
-                            qrCodeContainer.innerHTML = "";
-                            const qrCode = document.createElement("img");
-                            qrCode.id = "qr-code";
-                            qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(cleanUrl)}`;
-                            qrCodeContainer.appendChild(qrCode);
-                            qrCodeContainer.style.padding = "20px";
+            if (canUseNativeShare) {
+                isSharing = true;
+                await navigator.share({
+                    title: business.name,
+                    text: `Discover why ${business.name} is a Local Gem!`,
+                    url: fullShareUrl
+                });
+                showToast("✅ Shared successfully!", "success");
+            } else {
+                const qrCodeContainer = document.getElementById("qr-code-container");
+                if (qrCodeContainer && !qrCodeContainer.querySelector("#qr-code")) {
+                    qrCodeContainer.innerHTML = "";
+                    const qrCode = document.createElement("img");
+                    qrCode.id = "qr-code";
+                    qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(fullShareUrl)}`;
+                    qrCodeContainer.appendChild(qrCode);
+                    qrCodeContainer.style.padding = "20px";
 
-                            const closeButton = document.createElement("button");
-                            closeButton.id = "qr-close-button";
-                            closeButton.textContent = "Close";
-                            closeButton.style.display = "block";
-                            closeButton.style.marginTop = "10px";
-                            closeButton.addEventListener("click", () => {
-                                qrCodeContainer.innerHTML = "";
-                                qrCodeContainer.style.padding = "0";
-                            });
-                            qrCodeContainer.appendChild(closeButton);
-                            showToast("📸 QR code generated.", "info");
-                        }
-                    }
-                } catch (err) {
-                    console.error("Share failed:", err);
-                    showToast("❌ Sharing failed. Try QR code instead.", "error");
-                } finally {
-                    isSharing = false;
+                    const closeButton = document.createElement("button");
+                    closeButton.id = "qr-close-button";
+                    closeButton.textContent = "Close";
+                    closeButton.style.display = "block";
+                    closeButton.style.marginTop = "10px";
+                    closeButton.addEventListener("click", () => {
+                        qrCodeContainer.innerHTML = "";
+                        qrCodeContainer.style.padding = "0";
+                    });
+                    qrCodeContainer.appendChild(closeButton);
+                    showToast("📸 QR code generated.", "info");
                 }
-            });
+            }
+        } catch (err) {
+            console.error("Share failed:", err);
+            showToast("❌ Sharing failed. Try QR code instead.", "error");
+        } finally {
+            isSharing = false;
         }
+    });
+}
+
 
         // 🔹 Push state + show modal
         window.history.pushState({ business: business.id }, "", shareUrl);
