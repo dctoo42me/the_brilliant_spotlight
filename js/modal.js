@@ -151,7 +151,7 @@ window.Modal = (() => {
                                     title: `Save ${business.name} Ad`,
                                     text: `Save this Ad from ${business.name} to your Photos!`
                                 });
-                                showToast("📱 Shared successfully!", "success");
+                                showToast("📱 Saved successfully!", "success");
                                 return;
                             } catch (shareErr) {
                                 console.warn("Mobile share failed:", shareErr);
