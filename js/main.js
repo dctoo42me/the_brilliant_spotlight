@@ -11,4 +11,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.UI.renderCarousel(businesses);
   window.Modal.setBusinesses(businesses); // <-- IMPORTANT
   window.Interactions.init(businesses);
+
+  // ✅ NEW: Auto-open modal if URL includes ?business=
+  const params = new URLSearchParams(window.location.search);
+  const businessId = params.get("business");
+  if (businessId) {
+    const matched = businesses.find(
+      (b) => String(b.id) === String(businessId) || b.id === parseInt(businessId)
+    );
+    if (matched) {
+      window.Modal.open(matched);
+    }
+  }
 });
